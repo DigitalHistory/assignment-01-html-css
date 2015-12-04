@@ -1,0 +1,87 @@
+* Web Skills Assignment: Goal
+
+You do not have to become a coder to do well in this course.  However, you /will/ have to be willing to explore technical skills that you might not otherwise develop as a humanities scholar.  In this assignment, you will learn /very basic/ web coding skills and apply them to a simple problem. The goal of the assignment is to provide you with basic technical knowledge that you will need for later assignments.  
+
+* Expectations
+Like all assignments in this class, this one is graded pass/fail. You will only get credit if your code runs as required. To pass the assignment, you must:
+- submit all materials in a zipped directory via the course Blackboard site AND via Dropbox upload to the link that has been mailed to you
+- complete the HTML & CSS course at codeacademy, and include a link to your profile at the top of the index.html file in the directory
+- complete the code for the Javascript questions in skeleton.js so that the output of your functions is precisely as requested
+- modify link-minsters.js according to the instructions below, so that the appropriate changes appear when index.html is loaded in a browser
+
+* Details
+
+First, download all the files in this repository to your computer by clicking the "Download Zip" button in the top right of this web page. You will need to "unzip" the files and edit them directly. [[https://www.google.ca/search?q=unzipping+files+mac+windows&ie=utf-8&oe=utf-8&gws_rd=cr&ei=EIJgVueMGYHq-QGPt6_YCQ][Ask Google how to do this if you don't already know how]]. 
+
+Web pages are composed of three components:  HTML, CSS, and Javascript.  HTML provides the /structure and content/ of a web page; CSS controls the /style of presentation/; and Javascript permits /dynamic modification/ of both.  To explore the web from the inside, you need to be a little bit comfortable in all three. 
+
+** Part 1 - HTML and CSS 
+Codeacademy.com is a platform that focusses on teaching web skills; [[http://www.codecademy.com/][head over there and set up an account]]. Once you've done that, simply complete the [[http://www.codecademy.com/tracks/web][HTML & CSS]] course.
+
+When you have finished this course, embed a link to your /profile page/ (click "view my Profile" under the top right menu item with your picture on it) in your copy of ~index.html~ (right next to this file).  That's all! But feel free to continue exploring on Codeacademy -- there's lots to learn and much of it will be helpful to this course, or to your further explorations in this field.
+
+** Part 2 - Javascript   
+For Javascript, we will use the excellent online book [[http://eloquentjavascript.net/][Eloquent Javascript]] as a textbook. Read Chapters 1-4 and, importantly, *do all the exercises* using [[http://eloquentjavascript.net/code/][the code sandbox]]. Some of the discussion, especially in chapter 13, may be hard to follow. The exercises may also be quite hard. It is fair to give up and look at the solutions; but be sure you understand the solutions once you've looked at them.
+
+Let me stress this strongly: you almost certainly will not be able to do the exercises without doing the reading.  
+
+Once you have read the textbook and done the exercises, you should find this part of the assignment very straightforward. Complete the code in "skeleton.js" according to instructions.  Check your code by testing it in the [[http://eloquentjavascript.net/code/][EJ code sandbox]], [[https://developer.mozilla.org/en/docs/Tools/Scratchpad][Firefox Scratchpad]], or the [[https://developers.google.com/web/tools/chrome-devtools/debug/console/][Chrome console]].  I have written tests for you which will produce the appropriate output when your code is correct.  
+
+** Part 3 - Javascript in the Browser
+We will continue to read /Eloquent Javascript/, this time chapters [[http://www.eloquentjavascript.net/12_browser.html][12]] and [[http://eloquentjavascript.net/13_dom.html][13]]. Again, read the chapters and do the exercises; if the exercises are too hard, look at the answers but *be sure you understand them*.  
+
+[[./index.html]] is a very simple html file that contains a table of prime ministers.  Your task is write one or more functions that will *add links to the Wikipedia pages of all the prime ministers*.  
+
+Look at the structure of the table. Each row looks like this:
+
+#+BEGIN_SRC html
+      <tr>
+        <td class="PM">John Sparrow David Thompson</td>
+        <td class="Party">Conservative</td>
+        <td class="From">1892</td>
+        <td class="To">1894</td>
+      </tr>
+#+END_SRC
+
+Your code should change that to this:
+#+BEGIN_SRC html
+      <tr>
+        <td class="PM"><a href="https://en.wikipedia.org/wiki/John_Sparrow_David_Thompson">John Sparrow David Thompson</a></td>
+        <td class="Party">Conservative</td>
+        <td class="From">1892</td>
+        <td class="To">1894</td>
+      </tr>
+
+#+END_SRC
+
+Rather than asking you to include your code directly in ~index.html~, I have provided a script tag at the end of the file which loads the file ~ministers.js~.  There is some template code in that file already; complete the template and test your code by (re)loading index.html in your browser.
+
+I myself will test your code by loading the page and clicking on the links.  They should all point to Wikipedia pages.
+
+*Hints:* In this exercise we are beginning to actually do a form of digital history. Notice that we are treating /text/ as /data/: transforming names into "pointers" that give us access to further information.  
+
+This is made possible because the webpage itself is already well-structured.  Notice the class attribute on each ~<td>~ element:
+#+BEGIN_SRC html
+<td class="PM">John Sparrow David Thompson</td>
+#+END_SRC
+
+Now, consider the structure of Wikipedia links:
+
+#+BEGIN_SRC html
+https://en.wikipedia.org/wiki/John_Sparrow_David_Thompson
+#+END_SRC
+
+Note they always consist of "https://en.Wikipedia.org/wiki/" + A_Name_With_Spaces_Replaced_By_Underscores.  But, lucky you, /Wikipedia will rewrite spaces as underscores for you!/ If you would like to try to do that part yourself, take a look at [[http://www.w3schools.com/jsref/jsref_replace.asp][the Javascript string replace method]].  
+
+We will use skills developed in the exercises from chapter 13. Your function will have to:
+- /find and collect/ all the elements with the class "PM". The method you will need to use is mentioned only once in chapter 13, under "Finding Elements."
+- /clear/ the existing text node.
+- /add a child node/ of type "a" with text content that comes from the original content, and a link that is constructed of the Wikipedia address prefix + the original content.  
+
+If you find this is too easy: wikify *all* the fields in each row.  Now click on the "party" links. What could you do to fix them? Also, can you change the background color of one or more classes? 
+
+P.S. -- you may find it useful to look at the script I used to generate the table. You will find it in make-minister-table.js
+
+* Handing in
+
+As mentioned above: when you are finished -- when your code passes all the tests -- submit your answer as a zipped directory using the upload link I will email to you. Don't forget to include a link to your codeacademy profile page in ~index.html~.  
