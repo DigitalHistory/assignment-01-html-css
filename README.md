@@ -1,5 +1,7 @@
 # Web Skills Assignment: Goal
 
+This is an assignment for [Digital History](http://digital.hackinghistory.ca), a digital humanities course taught in the History Department at the University of Toronto.  If you&rsquo;re a teacher, feel free to fork and repurpose for your own courses.  If you&rsquo;re a student, keep reading!
+
 You do not have to become a coder to do well in this course.  However, you *will* have to be willing to explore technical skills that you might not otherwise develop as a humanities scholar.  In this assignment, you will learn *very basic* web coding skills and apply them to a simple problem. The goal of the assignment is to provide you with basic technical knowledge that you will need for later assignments.  
 
 # Expectations
@@ -38,23 +40,24 @@ We will continue to read *Eloquent Javascript*, this time chapters [12](http://w
 <./index.html> is a very simple html file that contains a table of prime ministers.  Your task is write one or more functions that will **add links to the Wikipedia pages of all the prime ministers**.  
 
 Look at the structure of the table. Each row looks like this:
-
+```html
     <tr>
       <td class="PM">John Sparrow David Thompson</td>
       <td class="Party">Conservative</td>
       <td class="From">1892</td>
       <td class="To">1894</td>
     </tr>
-
+```
 Your code should change that to this:
-
+```html
     <tr>
       <td class="PM"><a href="https://en.wikipedia.org/wiki/John_Sparrow_David_Thompson">John Sparrow David Thompson</a></td>
       <td class="Party">Conservative</td>
       <td class="From">1892</td>
       <td class="To">1894</td>
     </tr>
-
+```
+    
 Rather than asking you to include your code directly in `index.html`, I have provided a script tag at the end of the file which loads the file `ministers.js`.  There is some template code in that file already; complete the template and test your code by (re)loading index.html in your browser.
 
 I myself will test your code by loading the page and clicking on the links.  They should all point to Wikipedia pages.
@@ -62,13 +65,13 @@ I myself will test your code by loading the page and clicking on the links.  The
 **Hints:** In this exercise we are beginning to actually do a form of digital history. Notice that we are treating *text* as *data*: transforming names into &ldquo;pointers&rdquo; that give us access to further information.  
 
 This is made possible because the webpage itself is already well-structured.  Notice the class attribute on each `<td>` element:
-
+```html
     <td class="PM">John Sparrow David Thompson</td>
-
+```
 Now, consider the structure of Wikipedia links:
-
+```html
     https://en.wikipedia.org/wiki/John_Sparrow_David_Thompson
-
+```
 Note they always consist of &ldquo;<https://en.Wikipedia.org/wiki/>&rdquo; + A\_Name\_With\_Spaces\_Replaced\_By\_Underscores.  But, lucky you, *Wikipedia will rewrite spaces as underscores for you!* If you would like to try to do that part yourself, take a look at [the Javascript string replace method](http://www.w3schools.com/jsref/jsref_replace.asp).  
 
 We will use skills developed in the exercises from chapter 13. Your function will have to:
