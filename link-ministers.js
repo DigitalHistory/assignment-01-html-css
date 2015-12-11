@@ -11,7 +11,6 @@ function wikify(text) {
     return;
 }
 
-var classesToWikify = ["PM", "Party", "From", "To"];
 
 // take a class name as parameter, and linkify all such classes.  
 function linkifyClass (c) {
@@ -22,3 +21,8 @@ function linkifyClass (c) {
 
 // now call the function so that the work actually gets done.  
 linkifyClass("PM");
+
+// You can probably link all of the fields if you want:
+var classesToWikify = ["PM", "Party", "From", "To"];
+
+// then what?
