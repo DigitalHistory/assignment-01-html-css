@@ -8,7 +8,7 @@ Like all assignments in this class, this one is graded pass/fail. You will only 
 - submit all materials in a zipped directory via the course Blackboard site AND via Dropbox upload to the link that has been mailed to you
 - complete the HTML & CSS course at codeacademy, and include a link to your profile at the top of the index.html file in the directory
 - complete the code for the Javascript questions in skeleton.js so that the output of your functions is precisely as requested
-- modify link-minsters.js according to the instructions below, so that the appropriate changes appear when index.html is loaded in a browser
+- modify link-ministers.js according to the instructions below, so that the appropriate changes appear when index.html is loaded in a browser
 
 * Details
 

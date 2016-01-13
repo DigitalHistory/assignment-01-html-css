@@ -11,7 +11,7 @@ Like all assignments in this class, this one is graded pass/fail. You will only 
 -   submit all materials in a zipped directory via the course Blackboard site AND via Dropbox upload to the link that has been mailed to you
 -   complete the HTML & CSS course at codeacademy, and include a link to your profile at the top of the index.html file in the directory
 -   complete the code for the Javascript questions in skeleton.js so that the output of your functions is precisely as requested
--   modify link-minsters.js according to the instructions below, so that the appropriate changes appear when index.html is loaded in a browser
+-   modify link-ministers.js according to the instructions below, so that the appropriate changes appear when index.html is loaded in a browser
 
 # Details
 
@@ -37,27 +37,31 @@ Once you have read the textbook and done the exercises, you should find this par
 
 Continue to read *Eloquent Javascript*, this time chapters [12](http://www.eloquentjavascript.net/12_browser.html) and [13](http://eloquentjavascript.net/13_dom.html). Again, read the chapters and do the exercises; if the exercises are too hard, look at the answers but **be sure you understand them**.  
 
-<./index.html> is a very simple html file that contains a table of prime ministers.  Your task is write one or more functions that will **add links to the Wikipedia pages of all the prime ministers**.  
+[index.html](./index.html) is a very simple html file that contains a table of prime ministers.  Your task is write one or more functions that will **add links to the Wikipedia pages of all the prime ministers**.  
 
 Look at the structure of the table. Each row looks like this:
 
-    <tr>
-      <td class="PM">John Sparrow David Thompson</td>
-      <td class="Party">Conservative</td>
-      <td class="From">1892</td>
-      <td class="To">1894</td>
-    </tr>
+```html
+<tr>
+  <td class="PM">John Sparrow David Thompson</td>
+  <td class="Party">Conservative</td>
+  <td class="From">1892</td>
+  <td class="To">1894</td>
+</tr>
+```
 
 Your code should change that to this:
 
-    <tr>
-      <td class="PM"><a href="https://en.wikipedia.org/wiki/John_Sparrow_David_Thompson">John Sparrow David Thompson</a></td>
-      <td class="Party">Conservative</td>
-      <td class="From">1892</td>
-      <td class="To">1894</td>
-    </tr>
+```html
+<tr>
+  <td class="PM"><a href="https://en.wikipedia.org/wiki/John_Sparrow_David_Thompson">John Sparrow David Thompson</a></td>
+  <td class="Party">Conservative</td>
+  <td class="From">1892</td>
+  <td class="To">1894</td>
+</tr>
+```
 
-Rather than asking you to include your code directly in `index.html`, I have provided a script tag at the end of the file which loads the file `ministers.js`.  There is some template code in that file already; complete the template and test your code by (re)loading index.html in your browser.
+Rather than asking you to include your code directly in `index.html`, I have provided a script tag at the end of the file which loads the file `link-ministers.js`.  There is some template code in that file already; complete the template and test your code by (re)loading index.html in your browser.
 
 I myself will test your code by loading the page and clicking on the links.  They should all point to Wikipedia pages.
 
@@ -65,11 +69,15 @@ I myself will test your code by loading the page and clicking on the links.  The
 
 This is made possible because the webpage itself is already well-structured.  Notice the class attribute on each `<td>` element:
 
-    <td class="PM">John Sparrow David Thompson</td>
+```html
+<td class="PM">John Sparrow David Thompson</td>
+```
 
 Now, consider the structure of Wikipedia links:
 
-    https://en.wikipedia.org/wiki/John_Sparrow_David_Thompson
+```html
+https://en.wikipedia.org/wiki/John_Sparrow_David_Thompson
+```
 
 Note they always consist of &ldquo;<https://en.Wikipedia.org/wiki/>&rdquo; + A\_Name\_With\_Spaces\_Replaced\_By\_Underscores.  But, lucky you, *Wikipedia will rewrite spaces as underscores for you!* If you would like to try to do that part yourself, take a look at [the Javascript string replace method](http://www.w3schools.com/jsref/jsref_replace.asp).  
 
@@ -83,8 +91,8 @@ If you find this is too easy: wikify **all** the fields in each row.  Now click 
 
 **One more challenge for the eager.** Right now, the wiki links are added immediately when the page loads. Can you defer adding the links until a button is clicked? You will need to add a button element with an &ldquo;onClick&rdquo; attribute to index.html, and move the *execution* of &ldquo;linkifyClass&rdquo; out of link-ministers.js.  
 
-P.S. &#x2013; you may find it useful or interesting to look at the script I used to generate the table. You will find it in make-minister-table.js
+P.S. &#x2013; you may find it useful or interesting to look at the script I used to generate the table. You will find it in [make-minister-table.js](./make-minister-table.js).
 
 # Handing in
 
-As mentioned above: when you are finished &#x2013; when your code passes all the tests &#x2013; submit your answer as a zipped directory using the upload link I will email to you. Don&rsquo;t forget to include a link to your codeacademy profile page in `index.html`.
+As mentioned above: when you are finished &#x2013; when your code passes all the tests &#x2013; submit your answer as a zipped directory using the upload link I will email to you. Don&rsquo;t forget to include a link to your codeacademy profile page in `index.html`.  

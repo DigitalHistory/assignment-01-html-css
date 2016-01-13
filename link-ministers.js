@@ -25,4 +25,4 @@ linkifyClass("PM");
 // You can probably link all of the fields if you want:
 var classesToWikify = ["PM", "Party", "From", "To"];
 
-// then what?
+// what would you need to do next? Solution is left for the reader. 
