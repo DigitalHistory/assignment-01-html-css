@@ -3,10 +3,10 @@
   In chapter 2 of Eloquent Javascript, you learned how to make a simple ASCII-art
   triangle (exercise 2.1) and how to combine multiple loops for complex effects
   (exercise 2.3). Now, write a function that will produce a perfect ASCII-art V:
-  *
-  * *
-  *   *
-  *     *
+      *
+     * *
+    *   *
+   *     *
   *       *
 
   This is trickier than it looks, so I've given you some starter code below. Fill it in

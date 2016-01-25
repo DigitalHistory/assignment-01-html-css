@@ -27,7 +27,7 @@ When you have finished this course, embed a link to your *profile page* (click &
 
 ## Part 2 - Javascript
 
-For Javascript, we will use the excellent online book [Eloquent Javascript](http://eloquentjavascript.net/) as a textbook. Read Chapters 1-4 and, importantly, **do all the exercises** using [the code sandbox](http://eloquentjavascript.net/code/). Some of the discussion, especially in chapter 13, may be hard to follow. The exercises may also be quite hard. It is fair to give up and look at the solutions; but be sure you understand the solutions once you&rsquo;ve looked at them.
+For Javascript, we will use the excellent online book [Eloquent Javascript](http://eloquentjavascript.net/) as a textbook. Read Chapters 1-4 and, importantly, **do all the exercises** using [the code sandbox](http://eloquentjavascript.net/code/). Some of the discussion may be hard to follow. The exercises may also be quite hard. It is fair to give up and look at the solutions; but be sure you understand the solutions once you&rsquo;ve looked at them.
 
 Let me stress this strongly: you almost certainly will not be able to do the exercises without doing the reading.  
 
