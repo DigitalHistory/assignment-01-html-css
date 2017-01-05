@@ -4,11 +4,11 @@ This is an assignment for [[http://digital.hackinghistory.ca][Digital History]],
 You do not have to become a coder to do well in this course.  However, you /will/ have to be willing to explore technical skills that you might not otherwise develop as a humanities scholar.  In this assignment, you will learn /very basic/ web coding skills and apply them to a simple problem. The goal of the assignment is to provide you with basic technical knowledge that you will need for later assignments.  
 
 * Expectations
-Like all assignments in this class, this one is graded pass/fail. You will only get credit if your code runs as required. To pass the assignment, you must:
+This assignment is graded pass/fail. You will only get credit if *all of your code runs as required.* To pass the assignment, you must:
+- complete the HTML & CSS course at codeacademy Afterwards, send me an email with "HIS389 HTML/CSS ASSIGNMENT" in the subject line, and *a link to your http://codecademy.com profile page* in the email body.  This is due by *January 27*.
+- complete the code for the Javascript questions in skeleton.js so that the output of your functions is precisely as requested. Detailed instructions for this part are in ~skeleton.js~ itself.
+- modify ~link-ministers.js~ according to the instructions below, so that the appropriate changes appear when ~index.html~ is loaded in a browser
 - submit all materials in a zipped directory via the course Blackboard site AND via Dropbox upload to the link that has been mailed to you
-- complete the HTML & CSS course at codeacademy, and include a link to your profile at the top of the index.html file in the directory
-- complete the code for the Javascript questions in skeleton.js so that the output of your functions is precisely as requested
-- modify link-ministers.js according to the instructions below, so that the appropriate changes appear when index.html is loaded in a browser
 
 * Details
 
@@ -19,14 +19,14 @@ Web pages are composed of three components:  HTML, CSS, and Javascript.  HTML pr
 ** Part 1 - HTML and CSS 
 Codeacademy.com is a platform that focusses on teaching web skills; [[http://www.codecademy.com/][head over there and set up an account]]. Once you've done that, simply complete the [[http://www.codecademy.com/tracks/web][HTML & CSS]] course.
 
-When you have finished this course, embed a link to your /profile page/ (click "view my Profile" under the top right menu item with your picture on it) in your copy of ~index.html~ (right next to this file).  That's all! But feel free to continue exploring on Codeacademy -- there's lots to learn and much of it will be helpful to this course, or to your further explorations in this field.
+When you have finished this course, embed a link to your /profile page/ (click "view my Profile" under the top right menu item with your picture on it) in an email to me.  That's all! But feel free to continue exploring on Codeacademy -- there's lots to learn and much of it will be helpful to this course, or to your further explorations in this field.
 
-** Part 2 - Javascript   
-For Javascript, we will use the excellent online book [[http://eloquentjavascript.net/][Eloquent Javascript]] as a textbook. Read Chapters 1-4 and, importantly, *do all the exercises* using [[http://eloquentjavascript.net/code/][the code sandbox]]. Some of the discussion, especially in chapter 13, may be hard to follow. The exercises may also be quite hard. It is fair to give up and look at the solutions; but be sure you understand the solutions once you've looked at them.
+** Part 2 - Javascript in the Console  
+For Javascript, we will use the excellent online book [[http://eloquentjavascript.net/][Eloquent Javascript]] as a textbook. Read Chapters 1-4 and, importantly, *do all the exercises* using [[http://eloquentjavascript.net/code/][the code sandbox]]. Some of the discussion, especially in chapter 3, may be hard to follow. The exercises may also be quite hard. It is fair to give up and look at the solutions; but be sure you understand the solutions once you've looked at them.
 
 Let me stress this strongly: you almost certainly will not be able to do the exercises without doing the reading.  
 
-Once you have read the textbook and done the exercises, you should find this part of the assignment very straightforward. Complete the code in "skeleton.js" according to instructions.  Check your code by testing it in the [[http://eloquentjavascript.net/code/][EJ code sandbox]], [[https://developer.mozilla.org/en/docs/Tools/Scratchpad][Firefox Scratchpad]], or the [[https://developers.google.com/web/tools/chrome-devtools/debug/console/][Chrome console]].  I have written tests for you which will produce the appropriate output when your code is correct.  
+Once you have read the textbook and done the exercises, you should find this part of the assignment very straightforward. Complete the code in ~skeleton.js~ according to the instructions in that file.  Check your code by testing it in the [[http://eloquentjavascript.net/code/][EJ code sandbox]], [[https://developer.mozilla.org/en/docs/Tools/Scratchpad][Firefox Scratchpad]], or the [[https://developers.google.com/web/tools/chrome-devtools/debug/console/][Chrome console]].  I have written tests for you which will produce the appropriate output when your code is correct.  
 
 ** Part 3 - Javascript in the Browser
 Continue to read /Eloquent Javascript/, this time chapters [[http://www.eloquentjavascript.net/12_browser.html][12]] and [[http://eloquentjavascript.net/13_dom.html][13]]. Again, read the chapters and do the exercises; if the exercises are too hard, look at the answers but *be sure you understand them*.  
