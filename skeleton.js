@@ -1,20 +1,152 @@
 /*
-  Problem 1: 
-  In chapter 2 of Eloquent Javascript, you learned how to make a simple ASCII-art
-  triangle (exercise 2.1) and how to combine multiple loops for complex effects
-  (exercise 2.3). Now, write a function that will produce a perfect ASCII-art V:
-      *
-     * *
-    *   *
-   *     *
-  *       *
+Problem 1: 
+*/
 
-  This is trickier than it looks, so I've given you some starter code below. Fill it in
-  until it works.  Test it in your browser console, or in the Eloquent Javascript coding sandbox.  
+/*
+BACKGROUND:
+In chapter 2 of Eloquent Javascript, you learned how to make a simple ASCII-art
+triangle (exercise 2.1) and how to combine multiple loops for complex effects
+(exercise 2.3).
 
-  Hint: your function will need to create loops inside loops. For each line, there is an initial offset,
-  an asterisk, and then more spaces. In all but one cases there is then a final asterisk.  I'll leave 
-  the math for you to figure out.  
+let's put these skills to use.  first, remember that you made that first triangle with a simple loop:
+
+*
+**
+***
+****
+*****
+
+There are at least two ways to do this. The author does it by
+MODIFYING A VARIABLE WHILE LOOPING. THis is quite elegant:
+
+for (var line = "*"; line.length < 6; line += "*") {
+console.log(line);
+}
+
+This is a sophisticated use of of the loop condition -- study it until you understand it!
+
+Another way is to use the built-in Javascript string method "repeat":
+
+var height = 5
+var dot = "*"
+for (var y = 1; y<height; y++) {
+console.log(dot.repeat(y));
+}
+
+Again, study this until you understand it.  
+*/
+
+/*
+PART A: 
+
+First, turn the code above into a FUNCTION called "makeTriangle". It
+should take one parameter, "height", and produce a triangle of
+asterisks of that height.
+*/
+
+//uncomment and fix:
+
+var makeTriangle = function (height) {
+
+  // build the for loop here.
+  // remember to use the parameter that is being passed.
+  // for (?;?;?) {
+  //   console.log("??");
+  // }
+}
+
+//tests
+makeTriangle(5);
+makeTriangle(8);
+
+/*
+PART B:
+
+Now, instead of a simple triangle:
+*
+**
+***
+****
+*****
+
+Write a similar function that produces an OFFSET triangle:
+
+    *
+   **
+  ***
+ ****
+*****
+
+You will have to do a tiny bit of math. What's the relationship
+between the spaces and the asterisks?
+*/
+
+var offsetTriangle = function (height) {
+  // for (?;?;?) {
+  //   console.log(something + something else);
+}
+
+  
+//tests. Uncomment before submitting.
+// offsetTriangle(5);
+// offsetTriangle(8);
+
+/*
+
+PART C: 
+
+Now, write a function that will produce a perfect ASCII-art PYRAMID:
+    *
+   ***
+  *****
+ *******
+*********
+
+This is very similar to the last part, but the math is a tiny bit trikier.  
+ */
+
+var makeTriangle = function (height) {
+  // let's do this a slightly different way that
+  // we did the last ones -- we'll build a multi-line string,
+  // and then send the whole string to the console at the end
+  // This is a good way to get i n the habit of RETURNING VALUES
+  // rather than just printing directly.
+  var v = "";
+  // Loop -- we'll need "height" number of lines
+  for (h = height; h>0; h--){
+    // The line itself is composed of two parts:
+    // an offset, and then at least one *.  In fact, there's
+    // a very straightforward pattern to the number of *'s you need.
+
+    // Now you need to build the offset.  You can do this with a loop, or with
+    // the "repeat" method.
+
+    //v+= something;              
+
+    // now add the asterisks.  Again, decide whether to use a loop or "repeat"
+
+    //v+= somethingelse;
+    
+    // now and an end-of-line character
+    v += "\n";
+  }
+  // output v  to the console
+  console.log(v);
+}
+
+makeTriangle(13); // test your code by running it in the console
+
+/*
+EXTRA CREDIT:
+
+Now, try to make a hollow, upside down V instead:
+    *
+   * *
+  *   *
+ *     *
+*       *
+
+Can you do it?
 */
 
 var makeV = function (height) {
@@ -22,7 +154,7 @@ var makeV = function (height) {
     // to log to the console later
     var v = "";
     // Outer loop -- we'll need "height" number of lines
-    for (h=??; ??; h??){
+    for (h=height; h>0; h--){
         // The line itself is composed of several parts:
         // an offset, a *, and generally some spacing after the *
         // and a second *. There's one case when this isn't true --
@@ -42,17 +174,36 @@ makeV(13); // test your code by running it in the console
 /* 
    2. Write a simple function "longest" to return the longest of two strings passed as parameters.
 
-   Hint: This is really easy, remember that every string has a method "length" that returns its length,
-   and that functions are defined using the form:
+   Hint: This is really easy. 
+
+   First, remember that an "if" construct has the following form:
+
+   if (test) {
+   // do some stuff
+   } else {
+   //do some other thing instead
+   }
+
+   Also, remember that every string has a method "length" that returns its length,
+   and that functions are defined using one of two forms:
+   
+   var NAME = function (parameter1, parameter2) {...body...}
+
+   or 
 
    function NAME (parameter1,parameter2) {...body...}
 
+  Let's get in the habit of RETURNING values, rather than just logging directly to the console.  
+  so, be sure to do that.  
 */
 
 function longest (s1,s2) {
-    // do stuff here
+    // check which string is longer
+    // if... then ...
+    // otherwise something else
     return something;
 }
+
 
 // check your code using these tests.
 console.log(longest("Stephen Harper", "William Lyon Mackenzie King"));
@@ -64,8 +215,28 @@ console.log(longest("Pierre Elliott Trudeau", "Justin Trudeau"));
   "PM's reign was N years long.", substituting the value of PM and the
   difference between To and From, in the appropriate places.  
 
+  This is also not that hard, but you have to remember what an "object" is in 
+  Javascript.  Remember, an object has the form:
+
+var myObject = {
+  "att1": "a string can go here",
+  "att2": 23464, // or an integer
+  "att3": ["or", "even", "an", "array"],
+  "att4": {a1:"Wow!", a2:"objects can be attribute values too!"}
+};
+
+  You access the values with one of two syntaxes, 
+
+  myObject["att1"] or myObject.att1
+
+  Either one of those will return "a string can go here", which is the
+  VALUE of myObject's "att1" ATTRIBUTE.
+  
+  Now you just have to do some simple subtraction using the object's attributes.
+  
 */
 
+// complete this function
 function computeReign (pm) {
     // compute the length of reign
     // generate a string "s"
@@ -132,8 +303,15 @@ var ministers = [ {
 }];
 
 function sentences(list) {
-    // do stuff here
+  // declare a variable
+  // add name to the variable
+  // add some text
+  // add initial year
+  // add some more text
+  // add final year
+  //what's left now? 
 }
 
-sentences(ministers);
+//test -- retain when submitting.
+console.log(sentences(ministers));
 

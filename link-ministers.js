@@ -16,6 +16,7 @@ function wikify(text) {
 function linkifyClass (c) {
     // get all elements of class c; loop through elements;
     // add link to each element
+    
     // no need for a return value. 
 }
 
