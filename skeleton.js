@@ -102,7 +102,7 @@ Now, write a function that will produce a perfect ASCII-art PYRAMID:
  *******
 *********
 
-This is very similar to the last part, but the math is a tiny bit trikier.  
+This is very similar to the last part, but the math is a tiny bit trickier.  
  */
 
 var makeTriangle = function (height) {
@@ -238,10 +238,11 @@ var myObject = {
 
 // complete this function
 function computeReign (pm) {
-    // compute the length of reign
-    // generate a string "s"
-    // return the string
-    return s;
+  // declare a variable, let's call it "r", seting it equal to the
+  // length of reign. Now declare another variable, let's call it "s",
+  // and construct the desired sentence using the appropriate
+  // attributes and variables.
+  return s;
 }
 
 // test with the following examples
