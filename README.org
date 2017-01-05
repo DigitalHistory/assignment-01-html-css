@@ -83,7 +83,7 @@ If you find this is too easy: wikify *all* the fields in each row.  Now click on
 
 *One more challenge for the eager.* Right now, the wiki links are added immediately when the page loads. Can you defer adding the links until a button is clicked? You will need to add a button element with an "onClick" attribute to index.html, and move the /execution/ of "linkifyClass" out of link-ministers.js.  
 
-P.S. -- you may find it useful or interesting to look at the script I used to generate the table. You will find it in make-minister-table.js
+P.S. -- you may find it useful or interesting to look at the script I used to generate the table. You will find it in [[./make-minister-table.js]]
 
 * Handing in
 
