@@ -5,22 +5,34 @@ You do not have to become a coder to do well in this course.  However, you /will
 
 * Expectations
 This assignment is graded pass/fail. You will only get credit if *all of your code runs as required.* To pass the assignment, you must:
-- complete the HTML & CSS course at codeacademy Afterwards, send me an email with "HIS389 HTML/CSS ASSIGNMENT" in the subject line, and *a link to your http://codecademy.com profile page* in the email body.  This is due by *January 27*.
-- complete the code for the Javascript questions in skeleton.js so that the output of your functions is precisely as requested. Detailed instructions for this part are in ~skeleton.js~ itself.
-- modify ~link-ministers.js~ according to the instructions below, so that the appropriate changes appear when ~index.html~ is loaded in a browser
-- submit all materials in a zipped directory via the course Blackboard site AND via Dropbox upload to the link that has been mailed to you
+- successfully fork this repository and clone a local copy
+- complete all three parts of this assignment, such that both the student-visible tests and the instructor/machine-visible tests all pass.  See below for details but please note that Part 1 includes some work which is to be done on the [[https://codecademy.com/][Codecademy]] website
+- commit your work to git as you go, so that a query of the git history will show multiple steps. Please note that git commits are timestamped and unique; they are an excellent defense against accusations of cheating, so please use them extensively.
+- push all your changes to github
+- submit your assignment via Github Pull Request
 
 * Details
 
-First, download all the files in this repository to your computer by clicking the "Download Zip" button in the top right of this web page. You will need to "unzip" the files and edit them directly. [[https://www.google.ca/search?q=unzipping+files+mac+windows&ie=utf-8&oe=utf-8&gws_rd=cr&ei=EIJgVueMGYHq-QGPt6_YCQ][Ask Google how to do this if you don't already know how]]. 
+Create a fork of this repository by [[https://classroom.github.com/a/y1HlCM6k][following this link]].  Clone locally via the "Clone or Download" process discussed in [[https://github.com/DigitalHistory/Github][your previous assignment]] and [[https://help.github.com/articles/cloning-a-repository/][described here]], and do your work in Atom. 
 
 Web pages are composed of three components:  HTML, CSS, and Javascript.  HTML provides the /structure and content/ of a web page; CSS controls the /style of presentation/; and Javascript permits /dynamic modification/ of both.  To explore the web from the inside, you need to be a little bit comfortable in all three. 
 
 ** Part 1 - HTML and CSS 
+
+*** Problem 1: Codecademy.com
 Codeacademy.com is a platform that focusses on teaching web skills; [[http://www.codecademy.com/][head over there and set up an account]]. Once you've done that, simply complete the [[http://www.codecademy.com/tracks/web][HTML & CSS]] course.
 
-When you have finished this course, embed a link to your /profile page/ (click "view my Profile" under the top right menu item with your picture on it) in an email to me.  That's all! But feel free to continue exploring on Codeacademy -- there's lots to learn and much of it will be helpful to this course, or to your further explorations in this field.
+When you have finished this course, embed a link to your /achievements page/. This page should have the structure ~https://www.codecademy.com/users/YOURCODECADEMYUSERNAME/achievements~. You can also get  there by clicking "view my profile under the top right menu item with your picture on it, and tfrom that page clicking "Badges".
 
+*** Problem 2: Blog Post content
+- steal from [[https://canvas.uw.edu/courses/1118282/assignments/3818107][joel's exercise 01]]
+- has to add some html about a historical character
+*** Problem 3: Blog Post Styling
+- add title bar 100%
+- add colors
+- change font family
+- change link color to something else
+- others?
 ** Part 2 - Javascript in the Console  
 For Javascript, we will use the excellent online book [[http://eloquentjavascript.net/][Eloquent Javascript]] as a textbook. Read Chapters 1-4 and, importantly, *do all the exercises* using [[http://eloquentjavascript.net/code/][the code sandbox]]. Some of the discussion, especially in chapter 3, may be hard to follow. The exercises may also be quite hard. It is fair to give up and look at the solutions; but be sure you understand the solutions once you've looked at them.
 
@@ -87,4 +99,4 @@ P.S. -- you may find it useful or interesting to look at the script I used to ge
 
 * Handing in
 
-As mentioned above: when you are finished -- when your code passes all the tests -- submit your answer as a zipped directory using the upload link I will email to you. Don't forget to include a link to your codeacademy profile page in ~index.html~.  
+As mentioned above: when you are finished -- when your code passes all the tests -- submit your code via pull request.  This is the only acceptable submission process!

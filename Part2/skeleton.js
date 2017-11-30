@@ -1,5 +1,5 @@
 /*
-Problem 1: 
+Problem 1:
 */
 
 /*
@@ -33,11 +33,11 @@ for (var y = 1; y<height; y++) {
 console.log(dot.repeat(y));
 }
 
-Again, study this until you understand it.  
+Again, study this until you understand it.
 */
 
 /*
-PART A: 
+PART A:
 
 First, turn the code above into a FUNCTION called "makeTriangle". It
 should take one parameter, "height", and produce a triangle of
@@ -53,7 +53,7 @@ var makeTriangle = function (height) {
   // for (?;?;?) {
   //   console.log("??");
   // }
-}
+};
 
 //tests
 makeTriangle(5);
@@ -84,16 +84,16 @@ between the spaces and the asterisks?
 var offsetTriangle = function (height) {
   // for (?;?;?) {
   //   console.log(something + something else);
-}
+};
 
-  
+
 //tests. Uncomment before submitting.
 // offsetTriangle(5);
 // offsetTriangle(8);
 
 /*
 
-PART C: 
+PART C:
 
 Now, write a function that will produce a perfect ASCII-art PYRAMID:
     *
@@ -102,7 +102,7 @@ Now, write a function that will produce a perfect ASCII-art PYRAMID:
  *******
 *********
 
-This is very similar to the last part, but the math is a tiny bit trickier.  
+This is very similar to the last part, but the math is a tiny bit trickier.
  */
 
 var makeTriangle = function (height) {
@@ -121,18 +121,18 @@ var makeTriangle = function (height) {
     // Now you need to build the offset.  You can do this with a loop, or with
     // the "repeat" method.
 
-    //v+= something;              
+    //v+= something;
 
     // now add the asterisks.  Again, decide whether to use a loop or "repeat"
 
     //v+= somethingelse;
-    
+
     // now and an end-of-line character
     v += "\n";
   }
   // output v  to the console
   console.log(v);
-}
+};
 
 makeTriangle(13); // test your code by running it in the console
 
@@ -159,22 +159,22 @@ var makeV = function (height) {
         // an offset, a *, and generally some spacing after the *
         // and a second *. There's one case when this isn't true --
         // when is it?
-        // in any case you will need some inner loops here. 
+        // in any case you will need some inner loops here.
         // each loop should add some characters to v using v += ...
         // remember end-of-line is added to a string as "\n"
 
     }
     // output to the console
     console.log(v);
-}
+};
 
 makeV(13); // test your code by running it in the console
 
 
-/* 
+/*
    2. Write a simple function "longest" to return the longest of two strings passed as parameters.
 
-   Hint: This is really easy. 
+   Hint: This is really easy.
 
    First, remember that an "if" construct has the following form:
 
@@ -184,38 +184,42 @@ makeV(13); // test your code by running it in the console
    //do some other thing instead
    }
 
+  s1.length
    Also, remember that every string has a method "length" that returns its length,
    and that functions are defined using one of two forms:
-   
+
    var NAME = function (parameter1, parameter2) {...body...}
 
-   or 
+   or
 
    function NAME (parameter1,parameter2) {...body...}
 
-  Let's get in the habit of RETURNING values, rather than just logging directly to the console.  
-  so, be sure to do that.  
+  Let's get in the habit of RETURNING values, rather than just logging directly to the console.
+  so, be sure to do that.
 */
 
 function longest (s1,s2) {
+  // if (s1.length > s2.length) {
+  //   return s1;
+  // } else {
+  //   return s2;
+  // }
     // check which string is longer
     // if... then ...
     // otherwise something else
-    return something;
 }
-
 
 // check your code using these tests.
 console.log(longest("Stephen Harper", "William Lyon Mackenzie King"));
-console.log(longest("Pierre Elliott Trudeau", "Justin Trudeau"));
+console.log(longest("Pierre Elliott 2 Trudeau", "Justin Trudeau"));
 
 /*
-  3. Compute the length of a prime minster's reign. Given an object 
-  with attributes "PM", "From", and "To", return the string 
+  3. Compute the length of a prime minster's reign. Given an object
+  with attributes "PM", "From", and "To", return the string
   "PM's reign was N years long.", substituting the value of PM and the
-  difference between To and From, in the appropriate places.  
+  difference between To and From, in the appropriate places.
 
-  This is also not that hard, but you have to remember what an "object" is in 
+  This is also not that hard, but you have to remember what an "object" is in
   Javascript.  Remember, an object has the form:
 
 var myObject = {
@@ -225,15 +229,15 @@ var myObject = {
   "att4": {a1:"Wow!", a2:"objects can be attribute values too!"}
 };
 
-  You access the values with one of two syntaxes, 
+  You access the values with one of two syntaxes,
 
   myObject["att1"] or myObject.att1
 
   Either one of those will return "a string can go here", which is the
   VALUE of myObject's "att1" ATTRIBUTE.
-  
+
   Now you just have to do some simple subtraction using the object's attributes.
-  
+
 */
 
 // complete this function
@@ -242,7 +246,9 @@ function computeReign (pm) {
   // length of reign. Now declare another variable, let's call it "s",
   // and construct the desired sentence using the appropriate
   // attributes and variables.
-  return s;
+  // finally, makre sure you return the sentence as the value of the function
+  //return s;
+  return;
 }
 
 // test with the following examples
@@ -274,11 +280,11 @@ console.log(computeReign(wlmk));
   Arthur Meighen was prime minister from 1920 to 1921.
   William Lyon Mackenzie King was prime minister from 1921 to 1926.
 
-  Hint: "ministers" is an ARRAY of OBJECTS. The simplest way to solve this problem 
+  Hint: "ministers" is an ARRAY of OBJECTS. The simplest way to solve this problem
   is to use the "for...of" loop syntax to loop through the array,
   and the object[attribute] or object.attribute reference format to access
   the internal components of the objects.
-  
+
 */
 
 var ministers = [ {
@@ -310,9 +316,24 @@ function sentences(list) {
   // add initial year
   // add some more text
   // add final year
-  //what's left now? 
+  //what's left now?
 }
 
 //test -- retain when submitting.
 console.log(sentences(ministers));
 
+// DO NOT MODIFY -- FOR AUTOMATED TESTING ONLY
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  var exports = module.exports = {};
+}
+else {
+  var exports = window.skeleton = {};
+}
+
+exports.ministers = ministers;
+exports.wl = wl;
+exports.wlmk = wlmk;
+exports.sentences = sentences;
+exports.makeV = makeV;
+exports.longest = longest;
+exports.computeReign=computeReign;
