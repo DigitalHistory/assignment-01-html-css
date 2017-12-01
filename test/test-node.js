@@ -8,8 +8,8 @@
 var isNode=new Function("try {return this===global;}catch(e){ return false;}");
 
 // common variables for both environments
-var //indexPath = 'dev/index-tester.html',
-     indexPath = 'Part1/index.html',
+var indexPath = 'dev/index-tester.html',
+     //indexPath = 'Part1/index.html',
     index2Path = 'Part2/index.html',
     caLink='';
 // var profileRE = new RegExp( "/https://wwww.codecademy.com/([A-Za-z]*)/i" ) ;
@@ -30,10 +30,12 @@ if (isNode()) {
   // gonna be a little bit screwed in the browser!
 }
 
-
+// more variables to be used later
 var links = [];
 const index = fs.readFileSync(indexPath, 'utf8');
 const baseDir = 'file://'+path.dirname(path.resolve(indexPath))+'/';
+
+// abortive code placed here vain hope of unifying web + node tests
 if (isNode()) {
   var local$ = cheerio.load(index);
   links = local$('a');
@@ -47,9 +49,14 @@ if (isNode()) {
 }
 
 
-// set up assertion statements
+// set up assertion statements. not using expect b/c want more messaging
 var assert=chai.assert;
-//expect=chai.expect;
+
+//////////////////////////////////////
+///
+///   tests start here
+///
+//////////////////////////////////////
 
 describe('Problem 1: Codeacademy Profile', function() {
   before(function(done) {
@@ -80,7 +87,7 @@ describe('Problem 1: Codeacademy Profile', function() {
                      'None of the links on the page match the pattern "https://www.codecademy.com/user/userid/achievements"');
   });
 
-  it('Unfortunately I can\'t test from here whether you have completed all the necessary badges, but plesae be aware that I will check that!');
+  it('Unfortunately I can\'t test from here whether you have completed all the necessary badges, but plesae be aware that I will check them when you hand in!');
 
 });
 

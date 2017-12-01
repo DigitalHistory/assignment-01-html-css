@@ -22,21 +22,23 @@
   "homepage": "https://github.com/titaniumbones/assignment-web-skills-intro#readme",
   "dependencies": {
     "chai": "^4.1.2",
-    "inline-css": "^2.2.3",
     "jshint": "^2.9.5",
     "mocha": "^4.0.1"
   },
   "devDependencies": {
     "html-word-count": "^2.0.0",
+    "inline-css": "^2.2.3",
+    "mocha-jshint": "^2.3.1",
+    "path": "^0.12.7"
+  },
+  "oldDependencies": {
+    "mocha-phantomjs": "^4.1.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-html-reporter": "^0.2.7",
     "karma-mocha-reporter": "^2.2.5",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-requirejs": "^1.1.0",
     "karma-spec-reporter": "0.0.31",
-    "mocha-jshint": "^2.3.1",
-    "mocha-phantomjs": "^4.1.0",
-    "path": "^0.12.7",
     "requirejs": "^2.3.5",
     "selenium-webdriver": "^3.6.0"
   }
