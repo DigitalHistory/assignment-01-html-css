@@ -8,7 +8,7 @@ This assignment is graded pass/fail. You will only get credit if *all of your co
 - successfully fork this repository and clone a local copy
 - complete all three parts of this assignment, such that both the student-visible tests and the instructor/machine-visible tests all pass.  See below for details but please note that Part 1 includes some work which is to be done on the [[https://codecademy.com/][Codecademy]] website
 - commit your work to git as you go, so that a query of the git history will show multiple steps. Please note that git commits are timestamped and unique; they are an excellent defense against accusations of cheating, so please use them extensively.
-- push all your changes to github
+- push all your changes to Github
 - submit your assignment via Github Pull Request
 
 * Details
@@ -22,10 +22,10 @@ Codeacademy.com is a platform that focusses on teaching web skills; [[http://www
 
 When you have finished this course, find the link to your /achievements page/. This page should have a URL with the structure ~https://www.codecademy.com/users/YOURCODECADEMYUSERNAME/achievements~. You can also get to this address by clicking "view my profile under the top right menu item with your picture on it, and from that page clicking "Badges".
 
-Embed a link to this page in the file [[./Part1/index.html]].  You may add any other content if you wish, but this link must exist and point to your unique profile.  
+Embed a link to this page in the file [[./index.html]].  You may add any other content if you wish, but this link must exist and point to your unique profile.  
 
 *** Problem 2: Blog Post Content
-In this exercise, you will write a short blog post (approximately 200 words) in HTML about a real historical figure about whom you already ave some interest, and in whom you are genuinely interested. You will write this post in [[./Part2/index.html]].  The post should contain, at a minimum, the following elements:
+In this exercise, you will write a short blog post (approximately 200 words) in HTML about a real historical figure about whom you already ave some interest, and in whom you are genuinely interested. You will write this post in [[./index.html]].  The post should contain, at a minimum, the following elements:
 - an ~<article>~ tag, which contains all of the elements mentioned below
 - a ~<header>~ element, inside of which there should also be:
   - an ~<h1>~ element with the figure's name

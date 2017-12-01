@@ -8,12 +8,11 @@
 var isNode=new Function("try {return this===global;}catch(e){ return false;}");
 
 // common variables for both environments
-var indexPath = 'dev/index-tester.html',
-     //indexPath = 'Part1/index.html',
-    index2Path = 'Part2/index.html',
+var //indexPath = 'dev/index-tester.html',
+     indexPath = 'index.html',
     caLink='';
 // var profileRE = new RegExp( "/https://wwww.codecademy.com/([A-Za-z]*)/i" ) ;
-// var pr = new RegExp('https://www.codecademy.com/users/(.*)/achievements');
+var pr = new RegExp('https://www.codecademy.com/users/(.*)/achievements');
 const inlineCss = require('inline-css'); //for css testing
 if (isNode()) {
   var chai=require('chai'),
