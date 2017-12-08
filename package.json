@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/titaniumbones/assignment-web-skills-intro#readme",
   "dependencies": {
-    "jshint": "^2.9.5"
   },
   "devDependencies": {
     "git-commits": "^1.3.0",
@@ -39,6 +38,7 @@
     "git-state": "^4.0.0",
     "json-validation": "^1.0.4",
     "jsonlint": "^1.6.2",
+    "jshint": "^2.9.5",
     "mocha": "^4.0.1",
     "mocha-pretty-spec-reporter": "0.1.0-beta.2",
     "mochawesome": "^3.0.0"

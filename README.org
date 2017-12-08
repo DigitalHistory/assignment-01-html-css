@@ -17,38 +17,38 @@ Create a fork of this repository by [[https://classroom.github.com/a/y1HlCM6k][f
 
 Web pages are composed of three components:  HTML, CSS, and Javascript.  HTML provides the /structure and content/ of a web page; CSS controls the /style of presentation/; and Javascript permits /dynamic modification/ of both.  In this assignment, we explore the first two components, HTML and CSS 
 
-*** Problem 1: Codecademy.com
+** Problem 1: Codecademy.com
 Codeacademy.com is a platform that focusses on teaching web skills; [[http://www.codecademy.com/][head over there and set up an account]]. Once you've done that, simply complete the [[http://www.codecademy.com/tracks/web][HTML & CSS]] course.
 
 When you have finished this course, find the link to your /achievements page/. This page should have a URL with the structure ~https://www.codecademy.com/users/YOURCODECADEMYUSERNAME/achievements~. You can also get to this address by clicking "view my profile under the top right menu item with your picture on it, and from that page clicking "Badges".
 
 Embed a link to this page in the file [[./index.html]].  You may add any other content if you wish, but this link must exist and point to your unique profile.  
 
-*** Problem 2: Blog Post Content
+** Problem 2: Blog Post Content
 In this exercise, you will write a short blog post (approximately 200 words) in HTML about a real historical figure about whom you already ave some interest, and in whom you are genuinely interested. You will write this post in [[./index.html]].  The post should contain, at a minimum, the following elements:
 - an ~<article>~ tag, which contains all of the elements mentioned below
 - a ~<header>~ element, inside of which there should also be:
   - an ~<h1>~ element with the figure's name
   - an ~<h2>~ element containing the text ~by <span class="author">Your Name</span>~, and also containing *the original ~<a>~ link from Problem 1 that points to your profile*. 
 - a ~<section>~ element with class ~main~, containing your main content
-- an ~<img>~ or ~<figure>~ tag *within* the main section. The image should be a picture of the historical figure.
+- an ~<img>~ tag *within* the main section. The image should be a picture of the historical figure.
 - a ~<section>~ element with class ~sources~
 - inside your sources section, a ~<ul>~ element containing at least two ~<li>~ elements, each of which lists one source that you used in writing your blog post. The title of the source should bea hyperlink with ~href~ attribute linking back to the source. If your source is a print book or article, the link should point to the source's listing in the library catalog. In the extremely unlikely event that the source is not among the library's holdings, use an Amazon or Google Scholar link instead.  
 - steal from [[https://canvas.uw.edu/courses/1118282/assignments/3818107][joel's exercise 01]]
 - has to add some html about a historical character
-*** Problem 3: Blog Post Styling
+** Problem 3: Blog Post Styling
 In this exercise, you will add style information to your post. You should write the style information in [[./Part2/style.css]]. You may make as many changes as you like, but at a minimum you should:
 - add a ~<link.../>~ element to ~<head>~ in ~index.html~, with attributes ~rel~ set to "stylesheet" and ~href~ set to "./style.css"
 - set the ~width~ of the ~<header>~ element to "100%
 - set the background color of ~<header>~ to something *different from* the background color of the rest of the page
 - add right and left margins to ~section.main~ and ~section.sources~
 - Add a border to ~section.sources~ to set it off from ~section.main~
-- use ~float~ to position the ~img~ or ~figure~ tag *either* on the right or the left of the section
-*** Problem 4: Accessibility (required for "A" bundle only)
-So far, we have only covered very basic HTML and CSS.  In this problem you are asked to teach yourself about an advanced topic and apply your new knowledge to your web page. In the design of any real website, accessibility to users with visual or other disabilities is very important.  Make sure your web page is fully accessible by adding the following elements to the page:
-- metadata tags?
-- alt tag (if img); figcaption (if figure)
-- aria tags (to what?)
+- use ~float~ to position the ~img~ tag *either* on the right or the left of the section
+** Problem 4: Reflection
+*Required for letter grade of 'A' only.* As before, copy the file [[./Reflection/reflection-template.md]] to ~Reflection/yourgithubid.md~, again replacing `yourgithubid` with your actual Github ID.  Follow the directions in the file. 
+** Tests
+As in our other assignments, this one conmes with a set of bundled tests designed to make your life a little easier.  To run them, first execute ~npnm install -d~ from this directory. Then run ~npm run test~ or, to watch the directory continuously, ~npm run watch~
+
 * Handing in
 
 As mentioned above: when you are finished -- when your code passes all the tests -- submit your code via pull request.  This is the only acceptable submission process!
