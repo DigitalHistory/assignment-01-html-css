@@ -1,8 +1,6 @@
 // initial set up
 // currently doing nothin in web page
 
-// var mocha=require('mocha');
-
 // test if in browser or node
 // cf. https://stackoverflow.com/questions/17575790/environment-detection-node-js-or-browser
 var isNode=new Function("try {return this===global;}catch(e){ return false;}");
@@ -11,7 +9,7 @@ var isNode=new Function("try {return this===global;}catch(e){ return false;}");
 var //indexPath = 'dev/index-tester.html',
      indexPath = 'index.html',
     caLink='';
-// var profileRE = new RegExp( "/https://wwww.codecademy.com/([A-Za-z]*)/i" ) ;
+
 var pr = new RegExp('https://www.codecademy.com/users/(.*)/achievements');
 const inlineCss = require('inline-css'); //for css testing
 if (isNode()) {
@@ -33,6 +31,27 @@ if (isNode()) {
 var links = [];
 const index = fs.readFileSync(indexPath, 'utf8');
 const baseDir = 'file://'+path.dirname(path.resolve(indexPath))+'/';
+
+var testhtml = `<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <table>
+      <tr>
+        <td class = "PM">Some Name</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>
+`;
+var jsdom = require("jsdom");
+var { JSDOM } = jsdom;
+//var { window } = new JSDOM(`<!DOCTYPE html>`);
+var { window } = new JSDOM(testhtml);
+var jq = require('jquery')(window);
+
 
 // abortive code placed here vain hope of unifying web + node tests
 if (isNode()) {
