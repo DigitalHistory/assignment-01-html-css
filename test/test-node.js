@@ -14,6 +14,7 @@ var chai=require('chai'),
     request = require('request'),
     cheerio=require('cheerio'),
     path = require('path'),
+    gitConfig = require('git-config'),
     hwc = require('html-word-count');
 
 // more variables to be used later
@@ -50,6 +51,21 @@ console.log ("word count is " + hwc(local$('section.main').html()));
 // set up assertion statements. not using expect b/c want more messaging
 var assert=chai.assert,
     expect=chai.expect;
+
+
+// gitconfig
+
+var name,email,githubid;
+
+gitConfig(function (err, config) {
+  if (err) return done(err);
+  if (config.user.name) {name = config.user.name;}
+  if (config.user.email) {email = config.user.email;}
+  if (config.github.user) {githubid = config.github.user;}
+  
+});
+
+
 
 //////////////////////////////////////
 ///
@@ -149,7 +165,9 @@ describe('Problem 2: Blog Post Content', function() {
   });
 
   it('every li element in section.sources should contain a valid a element pointing to a source', function() {
-    local$('section.sources ul li').each( function(i, item) {
+    let items = local$('section.sources ul li');
+    expect (items.length, "Fewer than two list items in the source section").to.be.at.least(2);
+    items.each( function(i, item) {
       assert.isAtLeast(local$('a', this).length,1,"No a tag in list item number " + i);
 
     } );
@@ -210,18 +228,14 @@ describe('Problem 3: Blog Post Style', function () {
 });
 
 
-describe('Problem 4: Accessibility', function() {
-
-  it('All images should have `alt` attributes \
-     (if using <img>) or <figcaption> attributes (if using figures)', function() {
-    
+describe('Reflection Checks (not required unless you are attempting an "A" grade!)', function() {
+  it('Reflection file should exist', function() {
+    let r = `Reflection/${githubid}.md`;
+    expect(r, `I can't find the file ${r}`).to.be.a.file();
   });
-
-  it('Aria tags for um some things', function() {
-    
-  });
-
-  it('One other accessibility test', function() {
-    
+  it('The total word count for your reflection should be at least 550', function() {
+    let content=fs.readFileSync(`Reflection/${githubid}.md`, 'utf-8');
+    expect(hwc(content), "").to.be.at.least(550);
   });
 });
+
