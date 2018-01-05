@@ -179,7 +179,7 @@ describe('Problem 3: Blog Post Style', function () {
 
   before(function (done)  {
     // set up tests, as above
-    inlineCss(index, {url:"file:///home/matt/DH/Assignments/01-html-css/", 
+    inlineCss(index, {url:"file://" + __dirname + "/../",
                       removeLinkTags:false})
       .then(function(inlined ){
         local$ = cheerio.load(inlined);
