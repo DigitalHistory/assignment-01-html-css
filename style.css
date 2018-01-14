@@ -1,3 +1,20 @@
 article {
     background:  #0000;;
 }
+header {
+    width: 100%;
+    color: #C0C0C0;
+}
+.main {
+  margin-left: auto;
+  margin-right: auto;
+}
+.sources {
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-width: medium;
+}
+img {
+  float: left;
+}
