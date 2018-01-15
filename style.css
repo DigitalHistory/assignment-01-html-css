@@ -15,6 +15,7 @@ section.sources {
   border-style: solid;
   border-width: medium;
   background-color: #C0C0C0;
+  border: exist;
 }
 img.pic {
   float: left;
