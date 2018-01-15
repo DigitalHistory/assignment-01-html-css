@@ -9,7 +9,7 @@ header {
   margin-left: auo;
   margin-right: auto;
 }
-.sources {
+section.sources {
   margin-left: auto;
   margin-right: auto;
   border-style: solid;
@@ -29,7 +29,4 @@ img.pic {
 }
 body {
   background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1280px-Flag_of_France.svg.png);
-}
-.heading {
-  margin-left: 50%;
 }
