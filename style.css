@@ -3,10 +3,10 @@ article {
 }
 header {
     width: 100%;
-    color: #C0C0C0;
+  background-color: #C0C0C0;
 }
 .main {
-  margin-left: auto;
+  margin-left: auo;
   margin-right: auto;
 }
 .sources {
@@ -14,7 +14,22 @@ header {
   margin-right: auto;
   border-style: solid;
   border-width: medium;
+  background-color: #C0C0C0;
 }
-img {
+img.pic {
   float: left;
+  width: 388px;
+  height: 460px;
+  margin-left: 15px;
+
+}
+.text {
+  width: 400px;
+  margin-left: 440px;
+}
+body {
+  background-image: url(https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/1280px-Flag_of_France.svg.png);
+}
+.heading {
+  margin-left: 50%;
 }
