@@ -7,3 +7,8 @@ node_modules
 /test/git-fooling.js
 /Reflection/titaniumbones.md
 /mochawesome-report
+/package-lock.json
+.DS_Store
+.DS_Store?
+._*
+**/.DS_Store
