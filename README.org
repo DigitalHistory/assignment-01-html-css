@@ -55,4 +55,8 @@ As in our other assignments, this one conmes with a set of bundled tests designe
 
 The above method is *deprecated*. Github Classroom no longer uses forks for assignments (argh!). Instead, *submission is accomplished automatically simply by pushing to the ~master~ branch*. So, no need to submit a Pull Request!
 
+** Resubmission 
 
+If you need to resubmit (using up a chit), first do all your work in the ~master~ branch. When you're confident that your work is complete, create a new branch called ~resubmit-1~ (do this at the command line, in Atom, or in GitKraken. You can even do it on the web). 
+
+Push that branch to Github, and then alert me that you're resubmitting (you might want to reconfirm that all the tests pass before doing this).  I'll then initiate a regrade. 
