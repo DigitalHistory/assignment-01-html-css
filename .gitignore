@@ -1,9 +1,12 @@
 node_modules
 /TestResults/
 /dev/
-/git-fooling.js
-/mochawesome-report/assets/MaterialIcons-Regular.woff
 /node_modules
-/test/git-fooling.js
+git-fooling.js
 /Reflection/titaniumbones.md
 /mochawesome-report
+/package-lock.json
+.DS_Store
+.DS_Store?
+._*
+**/.DS_Store
