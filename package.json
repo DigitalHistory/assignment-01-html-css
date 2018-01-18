@@ -4,9 +4,9 @@
   "description": "An assignment for Digital History at University of Toronto. Tests basic Javascript skills.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/test-git.js test/test-node.js  --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults || true",
-    "watch": "mocha test/test-git.js test/test-node.js   --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults -w",
-    "test-cli": "mocha test/test-git.js test/test-node.js  --reporter mocha-pretty-spec-reporter"
+    "test": "mocha -t 0 test/test-git.js test/test-node.js  --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults",
+    "test-less-confusing": "mocha -t 0 test/test-git.js test/test-node.js  --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults || true",
+    "watch": "mocha -t 0 test/test-git.js test/test-node.js   --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults -w",
   },
   "repository": {
     "type": "git",
