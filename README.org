@@ -51,4 +51,8 @@ As in our other assignments, this one conmes with a set of bundled tests designe
 
 * Handing in
 
-As mentioned above: when you are finished -- when your code passes all the tests -- submit your code via pull request.  This is the only acceptable submission process!
++As mentioned above: when you are finished -- when your code passes all the tests -- submit your code via pull request.  This is the only acceptable submission process!+ 
+
+The above method is *deprecated*. Github Classroom no longer uses forks for assignments (argh!). Instead, *submission is accomplished automatically simply by pushing to the ~master~ branch*. So, no need to submit a Pull Request!
+
+
