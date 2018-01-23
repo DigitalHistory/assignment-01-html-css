@@ -2,13 +2,14 @@ article {
     background:  #0000;;
 }
 header {
-  background-color: #C0C0C0;
+  background-color: #808080;
+  width: 100%;
 }
 .main {
   margin-left: auo;
   margin-right: auto;
 }
-section.sources {
+.sources {
   margin-left: auto;
   margin-right: auto;
   border-style: solid;
