@@ -34,7 +34,6 @@ In this exercise, you will write a short blog post (approximately 200 words) in 
 - an ~<img>~ tag *within* the main section. The image should be a picture of the historical figure.
 - a ~<section>~ element with class ~sources~
 - inside your sources section, a ~<ul>~ element containing at least two ~<li>~ elements, each of which lists one source that you used in writing your blog post. The title of the source should bea hyperlink with ~href~ attribute linking back to the source. If your source is a print book or article, the link should point to the source's listing in the library catalog. In the extremely unlikely event that the source is not among the library's holdings, use an Amazon or Google Scholar link instead.  
-- steal from [[https://canvas.uw.edu/courses/1118282/assignments/3818107][joel's exercise 01]]
 - has to add some html about a historical character
 ** Problem 3: Blog Post Styling
 In this exercise, you will add style information to your post. You should write the style information in [[./Part2/style.css]]. You may make as many changes as you like, but at a minimum you should:
