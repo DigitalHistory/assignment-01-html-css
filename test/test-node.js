@@ -233,9 +233,9 @@ describe('Reflection Checks (not required unless you are attempting an "A" grade
     let r = `Reflection/reflection.md`;
     expect(r, `I can't find the file ${r}`).to.be.a.file();
   });
-  it('The total word count for your reflection should be at least 550', function() {
+  it('The total word count for your reflection should be at least 478 (after the question text, that leaves about 125 words minimum per question)', function() {
     let content=fs.readFileSync(`Reflection/reflection.md`, 'utf-8');
-    expect(hwc(content), "").to.be.at.least(550);
+    expect(hwc(content), "").to.be.at.least(478);
   });
 });
 
