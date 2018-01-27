@@ -1,3 +1,41 @@
 article {
-    background:  #0000;;
+background-color: #0000;;
+}
+
+body{
+background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/40/Giza_Plateau_-_Great_Sphinx_with_Pyramid_of_Khafre_in_background.JPG"); /*this is a link to the background image used*/
+}
+header{ /* This decides the color of the header and how it is aligned*/
+  width: 100%;
+  color: white;
+  background-color:DeepSkyBlue ;
+  text-align: center;
+}
+
+section.main{ /* sets the color and margins of the main section*/
+  margin-left: 600px;
+  margin-right: 600px;
+  background-color: NavajoWhite;
+  border-style:inset;
+}
+
+section.sources{ /* this is the same information for the section that is for the sources used for the body*/
+  margin-left: 600px;
+  margin-right: 600px;
+  border: 2px solid black;
+  background-color: white;
+}
+section.poem{ /*this section give attibutes to the peom section*/
+   font-style: italic;
+   text-align: center;
+   margin-right: 600px;
+   margin-left: 600px;
+   border-style:inset;
+  background-color: Moccasin;
+}
+
+img { /*this floats the imag that is used at the top of the webpage*/
+    float: right;
+    width: 150px
+
 }
