@@ -1,0 +1,14 @@
+# Reflection
+
+In this assignment you've learned very basic HTML and CSS, the content and presentation layers of the web. Take this opportunity to think about how they might relate to your work as a historian.
+
+## Question 1 (150 words)
+#### In Part 2, we explored the use of semantic elements such as `<header>`, `<article>`, and `<section>`. These elements make it easier for machines and non-visual browsers to navigate web pages. Why might this be important? (You might want to Google around a bit before answering!)
+
+These elements are able to help the machines and none-visual browsers navigate easier because it divides the information on the webpage into sections that are easily identifiable and distinguishable. According to some research that I did online there are browsers that have been created for those that are visually impaired and rely on text to speech of web elements to know what the page looks like. Someone who is visually impaired will be able to be told that the header is above the body which is above the footer. Without those identification features someone that has a visual impairment wouldn’t know where sections of the website begin and ends. These features are also there to help someone that isn’t visually impaired as well as it can help them see what the website should look like and what order the elements will be presented in when it is all put together.
+
+## Question 2 (150 words)
+#### In your CSS work, you learned how to change the presentation of material on the web without changing the content. Using a pen and paper, a drawing program, or (if you're feeling ambitious) real HTML and CSS, mock up 2 very different presentations of the information you displayed in your post. Put images of them on the Internet somewhere (but not in this repository) and link to them here. Write a brief paragraph discussing the effect of the presentaiton layer on the reader.
+https://4st.me/fMQxM.png
+https://4st.me/ux6JO.png
+I have mocked up two different possible styles for webpages that could be used to present the information that is being using in the historical figure assignment. These different formats each have their own pros and cons. The first webpage that I made a mock up for would be helpful for a shorter amount of information with a minimum amount of citation and information about the author. The two side parts to the site would end before the main body of the piece if it is a longer body and would hurt the presentation of the piece. The second style that was mocked up would make it a lot easier to read a long assignment, the citations at the bottom can be as long as needed and the main body of the piece would be supplemented with images on the right-hand side of the website. There are so many different ways to present information with HTML and CSS that the options truly are infinite.
