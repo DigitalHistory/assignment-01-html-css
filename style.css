@@ -1,3 +1,43 @@
+html {background-color: #D3D3D3;}
+
+header {width: 100%;
+background-color: #C0C0C0;
+font-family: Cambria;}
 article {
-    background:  #0000;;
+    colour:  #000000;
+    font-family: Cambria;
+}
+
+img {position: relative;
+  float: left}
+
+article {background-color: #FFD700;}
+
+blockquote {
+  font: 18px/30px italic Cambria, ;
+  padding-top: 22px;
+  font-style: italic;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+  }
+
+section.main {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+  font-family: Cambria;
+  background-color: #FFD700
+}
+
+section.sources {
+    border: 1px solid #000000;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    font-family: Cambria;
+    background-color: #FFD700
 }

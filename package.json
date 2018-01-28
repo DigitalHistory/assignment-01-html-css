@@ -22,8 +22,7 @@
     "url": "https://github.com/titaniumbones/assignment-web-skills-intro/issues"
   },
   "homepage": "https://github.com/titaniumbones/assignment-web-skills-intro#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "git-commits": "^1.3.0",
     "html-word-count": "^2.0.0",
