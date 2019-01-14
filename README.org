@@ -1,31 +1,55 @@
-* HTML & CSS Assignment: Goal
+* Zero to Blog Post: Goal
 This is an assignment for [[http://digital.hackinghistory.ca][Digital History]], a digital humanities course taught in the History Department at the University of Toronto.  If you're a teacher, feel free to fork and repurpose for your own courses.  If you're a student, keep reading!
 
 You do not have to become a coder to do well in this course.  However, you /will/ have to be willing to explore technical skills that you might not otherwise develop as a humanities scholar.  In this assignment, you will learn /very basic/ web coding skills and apply them to a simple problem. The goal of the assignment is to provide you with basic technical knowledge that you will need for later assignments.  
 
 * Expectations
 This assignment is graded pass/fail. You will only get credit if *all of your code runs as required.* To pass the assignment, you must:
-- successfully fork this repository and clone a local copy
+- successfully create a github repositor and clone a local copy
 - complete all three parts of this assignment, such that both the student-visible tests and the instructor/machine-visible tests all pass.  See below for details but please note that Part 1 includes some work which is to be done on the [[https://codecademy.com/][Codecademy]] website
 - commit your work to git as you go, so that a query of the git history will show multiple steps. Please note that git commits are timestamped and unique; they are an excellent defense against accusations of cheating, so please use them extensively.
 - push all your changes to Github
 - submit your assignment via Github Pull Request
 
+* Preparation
+
+Please work your way through the following HTML and CSS resources (these are also listed in the syllabus):
+
+- [[https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web][MDN: Getting Started with the Web]] 
+- [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML][MDN: Intro to HTML]]. This is a great, systematic introduction to the most important HTML elements.
+- [[https://developer.mozilla.org/en-US/docs/Learn/HTML#Modules][MDN: Learn  HTML Pathway]]. You won't need all of this, but a lot of it is interesting.
+- [[https://developer.mozilla.org/en-US/docs/Learn/CSS][MDN: Learn CSS Pathway]]. Again, there is more here than you need, but big parts of it will be used in this assignment. 
+
+
 * Details
 
-Create a fork of this repository by [[https://classroom.github.com/a/y1HlCM6k][following this link]].  Clone locally via the "Clone or Download" process discussed in [[https://github.com/DigitalHistory/Github][your previous assignment]] and [[https://help.github.com/articles/cloning-a-repository/][described here]], and do your work in Atom. 
+Start the assignment by clicking the link on the [[https://digitalhistory.github.io/dh-website/assignment/][Assignments Page of the DH website]]. Then clone locally via the "Clone or Download" process [[https://help.github.com/articles/cloning-a-repository/][described here]], or just use [[https://code.visualstudio.com/docs/editor/versioncontrol#_cloning-a-repository][the VSCode git commands]]. Do your work in VSCode, then push your repo to the cloud when you're ready. 
 
 Web pages are composed of three components:  HTML, CSS, and Javascript.  HTML provides the /structure and content/ of a web page; CSS controls the /style of presentation/; and Javascript permits /dynamic modification/ of both.  In this assignment, we explore the first two components, HTML and CSS 
 
-** Problem 1: Codecademy.com
+
+
+** COMMENT Problem 1: Codecademy.com
 Codeacademy.com is a platform that focusses on teaching web skills; [[http://www.codecademy.com/][head over there and set up an account]]. Once you've done that, simply complete the [[http://www.codecademy.com/tracks/web][HTML & CSS]] course.
 
 When you have finished this course, find the link to your /achievements page/. This page should have a URL with the structure ~https://www.codecademy.com/users/YOURCODECADEMYUSERNAME/achievements~. You can also get to this address by clicking "view my profile under the top right menu item with your picture on it, and from that page clicking "Badges".
 
 Embed a link to this page in the file [[./index.html]].  You may add any other content if you wish, but this link must exist and point to your unique profile.  
 
+** Problem 1: HTML Meta & Structure 
+Make sure you've read [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started][intro to HTML overview]], [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML][Metadata overview]], and  
+In the directory ~01~, find the file ~01/letter.txt.  Your job is to convert this raw text into /structured HTML/.  I've provided you with some starter code in ~01/index.html~. Please do so in the following way:
+
+- add your name, email address and the date
+- put the sender info in the appropriate ~div~ element
+- put the date in the ~<time>~ element
+- put the recipient info in the ~recipient~ div element
+- make sure that both email addresses are [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#E-mail_links][working mailto: links]]
+- Put the body of the 
+- The lines reading ~Assignments~, ~Lectures~ and ~Course Website~ should
+
 ** Problem 2: Blog Post Content
-In this exercise, you will write a short blog post (approximately 200 words) in HTML about a real historical figure about whom you already ave some interest, and in whom you are genuinely interested. You will write this post in [[./index.html]].  The post should contain, at a minimum, the following elements:
+In this exercise, you will write a short blog post (approximately 200 words) in HTML about a real historical figure about whom you already have some interest, and in whom you are genuinely interested. You will write this post in [[./index.html]].  The post should contain, at a minimum, the following elements:
 - an ~<article>~ tag, which contains all of the elements mentioned below
 - a ~<header>~ element, inside of which there should also be:
   - an ~<h1>~ element with the figure's name
