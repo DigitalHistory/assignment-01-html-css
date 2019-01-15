@@ -1,0 +1,124 @@
+/* not really that important, just a reset to make things easier. */
+html, html * {
+    box-sizing: border-box;
+    
+}
+
+
+main {
+    background-color: rgba(80,80,80,0.2);
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: "nav nav nav"
+                         "side art aside"
+                         "side art aside";
+    grid-template-columns: 
+    grid-template-rows: 
+    grid-gap: 
+}
+
+
+main>* {
+    border: orange solid 1px;   /*sorry for the horrible color*/
+    border-radius: 10px;
+    text-align: center;         /*keep the text centered horizontally*/
+    
+}
+
+
+aside {
+    background-color: rgba(143, 81, 188, 0.3);
+    grid-area:
+}
+
+
+section.sidebar {
+    background-color: rgba(150, 112, 36, 0.3);
+    grid-area:
+    display: flex; 
+    flex-direction:
+    justify-content:            /*these last two are optional*/
+    align-items:
+}
+
+section.sidebar img {
+    max-width: 80%; /* you'll see why this is useful soon, I promise!*/
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+nav {
+    background-color: rgba(30,200,30,0.3);
+
+}
+
+article {
+    background-color: rgba(30,30,30,0.4);
+    grid-area:
+    display: grid ;
+    grid-template-columns: repeat (5, 1fr);
+    grid-template-rows: repeat (5, 1fr);
+    grid-gap:                   /*the gap is optional*/    
+}
+
+/* these next two are just simple styling to make the div boxes visible */
+article > div {
+    border: blue 1px solid;
+    border-radius: 10px;
+    background-color: rgba(50,50,200,0.3);
+}
+
+article div section {
+    line-height:2;
+    background-color: rgba(10,10,200,0.5);
+    
+}
+
+/* use the grid-row and grid-column values to place the boxes precisely onto the grid */
+#box1 {
+    grid-row:
+    grid-column:
+}
+
+#box2 {
+    grid-row:
+    grid-column:
+}
+
+#box3 {
+    grid-row:
+    grid-column:
+}
+
+#box4 {
+    grid-row:
+    grid-column:
+}
+
+#box5 {
+    grid-row:
+    grid-column:
+    background-color: rgba(200,10,10,0.3)
+}
+
+
+@media (max-width: 480px) {
+    main {
+        /* when the screen shrinks, reorganize the main grid */
+        grid-template-areas: "nav"
+                             "art"
+                             "side"
+                             "aside";
+        grid-template-columns: 1fr; /* this is the default value, but it we need to reset the value we set at line 15 */
+        grid-template-rows: 80px 1fr 120px 80px;
+    }
+    section.sidebar {
+        flex-direction: ;       /* when the screen shrinks, change direction.*/
+    }
+    
+    section.sidebar img {       /* I'vefilled these in for you; feel free to fool with them if you like. */
+        flex: 1;
+        max-height: 40%;
+        flex-shrink: 1;
+    }
+}

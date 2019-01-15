@@ -1,0 +1,42 @@
+html {
+    background-color: #ccc;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+main {
+    border: 2px black solid;
+    padding: 10px;                      
+}
+
+header {
+    text-align: center;
+}
+
+article {
+}
+
+article img {
+}
+
+footer {
+    background-color: #dfebfb;
+    min-height: 5rem;
+    /* please don't change these values; you will have 
+       plenty of chance to play with flex in the next problem */
+    display: flex; 
+    flex-order: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+button {
+    /* this one is free! */
+    min-width: 5rem;
+}
+.button {
+    
+}

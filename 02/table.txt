@@ -1,0 +1,29 @@
+TITLE: Prime Ministers of Canada
+
+
+HEAD:
+Prime Minister
+Party
+From
+To
+
+
+BODY ROWS:
+
+John A. Macdonald	
+Conservative	
+1867	
+1873
+
+Alexander Mackenzie	
+Liberal	
+1873	
+1878
+
+John Abbott
+Conservative
+1891
+1892
+
+
+CAPTION: This list of prime ministers is incomplete. 
