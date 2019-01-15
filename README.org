@@ -36,29 +36,88 @@ When you have finished this course, find the link to your /achievements page/. T
 
 Embed a link to this page in the file [[./index.html]].  You may add any other content if you wish, but this link must exist and point to your unique profile.  
 
-** Problem 1: HTML Meta & Structure 
+** Problem 1: HTML Structure 
 Make sure you've read [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started][intro to HTML overview]], [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML][Metadata overview]], and  
 In the directory ~01~, find the file ~01/letter.txt.  Your job is to convert this raw text into /structured HTML/.  I've provided you with some starter code in ~01/index.html~. Please do so in the following way:
 
 - add your name, email address and the date
-- put the sender info in the appropriate ~div~ element
-- put the date in the ~<time>~ element
-- put the recipient info in the ~recipient~ div element
+- add the sender info in the appropriate ~div~ element. Wrap the information in a ~<p>~ element and divide lines with [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br][<br> elements]] 
+- add the recipient info in the ~recipient~ div element, wrap in a ~p~ and divide w ~br~ as above. 
+- add the date in the ~<time>~ element
 - make sure that both email addresses are [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#E-mail_links][working mailto: links]]
-- Put the body of the 
-- The lines reading ~Assignments~, ~Lectures~ and ~Course Website~ should
+- add the text of the greeting line ("Dear Prof...") to the ~div.greeting!~ element
+- add the main text of the letter to the ~div.text~ element.  Separate into paragraphs with ~<p>~ elements, but also note:
+  - The lines reading ~Assignments~, ~Lectures~ and ~Course Website~ should be ~<h1>~ elements rather than ~<p>~ elements 
+  - The lines starting with ~- A...~ should be made into [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals#Unordered][list elements in an unordered list]]
+- add the closing (Sincerely,... yr name) to the.... wait for it...  that's right, to the ~div.closing~ element
+- Add the motto ("Perpetuis...") to the ~footer~ element
 
-** Problem 2: Blog Post Content
-In this exercise, you will write a short blog post (approximately 200 words) in HTML about a real historical figure about whom you already have some interest, and in whom you are genuinely interested. You will write this post in [[./index.html]].  The post should contain, at a minimum, the following elements:
+If you've passed all the tests, then you should be fine!
+
+** Problem 2: Tables
+HTML tables are sometimes misused as a styling technique, but they are designed for the display of *tabular data*. ~table.txt~ contains information which is appropriate to a table form. Your job is to convert it and add the HTML to ~index.html~. Here is your assignment:
+- Take the information in *TITLE* and put it in an ~<h1>~ element inside of ~<header>~.
+- create a ~<table>~ inside of ~<article>~
+- There are 4 column headings listed under *HEAD*. Create a ~<thead>~ element, a ~<tr>~ element inside of that, and add each heading as a ~<th>~ inside of the ~<tr>~
+- Create a ~<tbody>~ element and add information about each prime minister as a ~<tr>~ composed of 4 ~<td>~ cells
+- Add a ~<caption>~ element as a child of the ~<table>~ and add the *CAPTION* text there
+- add 4 ~<img>~ tags to ~<footer>~
+
+*Resources:* [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables][MDN Table Lesson]]
+
+
+
+** Problem 3: Basic Styling 
+CSS is an enormous topic, so it will be easy to get lost.  In this problem we deal with a few basic CSS properties, mostly affecting fonts, colors, and spacing. Start with the well-structured HTML in ~index.html~, to which very little styling has been applied so far.
+
+We want to make the final page look something like this: 
+https://screenshotscdn.firefoxusercontent.com/images/45eac93f-d0ac-45e8-a911-dbc6dfcd8648.png
+
+ Please do the following:
+- set the default font-family for the whole page to ~"Roboto", sans-serif~, using the ~html~ selector at the top of the file.
+- set the maximum width of ~main~ to ~50rem~ (we use a mixture of ~px~ and ~rem~ in this assignment!)
+- add a border radius of 10px to ~main~
+- add a background color to both ~header~ and ~footer~. Make it the same color!
+- add some padding (at least 5px) to the top of ~header~
+- add margins of at least 10px to the top and bottom of ~article~, and set the ~display~ to ~flow-root~ to fix the old problem of uncleared floats.
+- give the ~img~ inside ~article~ a maximum width of ~15rem~; also float it left; give it a visible border with a radius of at least 5px, and add a margin o n the right side to separate it from the text
+- make sure the minimum height of ~footer~ is at lest 5rem
+
+
+** Problem 4: Layout and Media Queries
+Here we tackle the difficult subject of CSS layout. The entire [[https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout][CSS Layout track]] from MDN is useful here, but be sure to read the (often complex) sections through to [[https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids][CSS Grids]]. You will need to be familiar with the box model, 
+
+Your job is to take the HTML given to you in ~index.html~ and make it look like this:
+
+https://screenshotscdn.firefoxusercontent.com/images/d74fd31d-2e85-4800-b09c-e80605df5353.png
+
+As you can see, it doesn't look very much like this yet!  This page is somewhat complicated. It uses "nested" layouts in order to expose you to both flexbox and two different ways of setting up a CSS Grid layout. In the solution key layout, 
+- ~<main>~ is a grid "parent", with the directive ~display: grid~. It has 4 direct children: ~nav, section.sidebar, article~, and ~aside~. Each of these is a grid "child" which must be assigned to one of the grid template areas in the main grid.
+- ~<article>~ is a grid child, but it also *parent* of its own grid.  It contains 5 styled divs, with id ~#box1~ to ~#box5~. the ~article~ grid does not define named template areas, so its children need to be placed using the ~grid-row~ and ~grid-column~ methods. You can see in the screenshot that the boxes overlap with each other in a diagonal line across the whole grid, with the fifth box placed in the top right off of the line.
+- ~section.sidebar~ is a grid child as well, and also a *flexbox parent*. Here we use flexbox to very easily line up the child ~img~ tags in a vertical line.  
+- for fun, I have also added a *media query* at the end of ~style.css~.  These few lines of code reorganize the page completely, something that would have been very hard to do just a few years ago.  
+
+I've added in the relevant CSS selectors and declarations; all you need to do is fill in the values.  Here's what I expect you to do: 
+- fill in grid-template-columns and grid-template rows so that the main column is *4 times as wide as the sides* and *4 times as tall as the nav*. Use ~fr~ units for consistency.
+- Add ~grid-area~ declarations for all the direct children of ~<main>~.
+- fill in ~flex-direction~ and optionally ~justify-content~ and ~align-items~ to make the ~section.sidebar~ flexbox layout work right
+- optionally fill in the ~grid-gap~ declaration in the ~article~ ruleset
+- fill in ~grid-row~ and ~grid-column~ for #box1 through #box5.
+- in the ~@media~ query, fill in the ~flex-direction~ for ~section.sidebar~
+
+** Problem 5: Blog Post
+OK, you've done a lot of practice, and you should now be ready to write your blog!
+
+In this exercise, you will write a short blog post (approximately 200 words) in HTML about a real historical figure (or event, or process) about whom (or which) you already have some interest, and in whom (or which) you are genuinely interested. You will write this post in [[05/index.html]].  The post should contain, at a minimum, the following elements:
 - an ~<article>~ tag, which contains all of the elements mentioned below
 - a ~<header>~ element, inside of which there should also be:
   - an ~<h1>~ element with the figure's name
-  - an ~<h2>~ element containing the text ~by <span class="author">Your Name</span>~, and also containing *the original ~<a>~ link from Problem 1 that points to your profile*. 
+  - an ~<h2>~ element containing the text ~by <span class="author">Your Name</span>~ and any other "byline" information you would like to include 
 - a ~<section>~ element with class ~main~, containing your main content
-- an ~<img>~ tag *within* the main section. The image should be a picture of the historical figure.
-- a ~<section>~ element with class ~sources~
-- inside your sources section, a ~<ul>~ element containing at least two ~<li>~ elements, each of which lists one source that you used in writing your blog post. The title of the source should bea hyperlink with ~href~ attribute linking back to the source. If your source is a print book or article, the link should point to the source's listing in the library catalog. In the extremely unlikely event that the source is not among the library's holdings, use an Amazon or Google Scholar link instead.  
-- has to add some html about a historical character
+- an ~<img>~ tag *within* the main section. The image should be a picture of the historical figure, or related to the historical event or process.
+- a ~<section>~ element with class ~sources~.
+- inside your sources section, a ~<ul>~ element containing at least two ~<li>~ elements, each of which lists one source that you used in writing your blog post. The title of the source should be a hyperlink with ~href~ attribute linking back to the source. If your source is a print book or article, the link should point to the source's listing in the library catalog. In the extremely unlikely event that the source is not among the library's holdings, use an Amazon or Google Scholar link instead.  
+
 ** Problem 3: Blog Post Styling
 In this exercise, you will add style information to your post. You should write the style information in [[./Part2/style.css]]. You may make as many changes as you like, but at a minimum you should:
 - add a ~<link.../>~ element to ~<head>~ in ~index.html~, with attributes ~rel~ set to "stylesheet" and ~href~ set to "./style.css"
