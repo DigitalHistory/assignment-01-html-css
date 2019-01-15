@@ -118,7 +118,7 @@ In this exercise, you will write a short blog post (approximately 200 words) in 
 - a ~<section>~ element with class ~sources~.
 - inside your sources section, a ~<ul>~ element containing at least two ~<li>~ elements, each of which lists one source that you used in writing your blog post. The title of the source should be a hyperlink with ~href~ attribute linking back to the source. If your source is a print book or article, the link should point to the source's listing in the library catalog. In the extremely unlikely event that the source is not among the library's holdings, use an Amazon or Google Scholar link instead.  
 
-** Problem 3: Blog Post Styling
+** COMMENT Problem 3: Blog Post Styling
 In this exercise, you will add style information to your post. You should write the style information in [[./Part2/style.css]]. You may make as many changes as you like, but at a minimum you should:
 - add a ~<link.../>~ element to ~<head>~ in ~index.html~, with attributes ~rel~ set to "stylesheet" and ~href~ set to "./style.css"
 - set the ~width~ of the ~<header>~ element to "100%
@@ -126,7 +126,7 @@ In this exercise, you will add style information to your post. You should write 
 - add right and left margins to ~section.main~ and ~section.sources~
 - Add a border to ~section.sources~ to set it off from ~section.main~
 - use ~float~ to position the ~img~ tag *either* on the right or the left of the section
-** Problem 4: Reflection
+** Problem 6: Reflection
 *Required for letter grade of 'A' only.* As before, copy the file [[./Reflection/reflection-template.md]] ... but this time *please note late-breaking change* -- copy it to ~Reflection/reflection.md~. This change improves the automated tests.  Once you've copied the file, follow the directions found therein.
 ** Tests
 As in our other assignments, this one conmes with a set of bundled tests designed to make your life a little easier.  To run them, first execute ~npm install -d~ from this directory. Then run either ~npm test~ or, for a slightly nicer output, ~npm run test-less-confusing~.  Even better, to have the tests run continuously every time you save changes to a file in the directory, type  ~npm run watch~ (again and always, from the root directory of the repository).
