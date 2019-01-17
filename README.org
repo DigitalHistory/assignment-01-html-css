@@ -108,7 +108,9 @@ I've added in the relevant CSS selectors and declarations; all you need to do is
 ** Problem 5: Blog Post
 OK, you've done a lot of practice, and you should now be ready to write your blog!
 
-In this exercise, you will write a short blog post (approximately 200 words) in HTML about a real historical figure (or event, or process) about whom (or which) you already have some interest, and in whom (or which) you are genuinely interested. You will write this post in [[05/index.html]].  The post should contain, at a minimum, the following elements:
+In this exercise, you will write a short blog post (approximately 200 words) in HTML about a real historical figure (or event, or process) about whom (or which) you already have some interest, and in whom (or which) you are genuinely interested. You will write this post in [[05/index.html]], and style it in [[05/style.css]]  
+
+*index.html** should contain, at a minimum, the following elements:
 - an ~<article>~ tag, which contains all of the elements mentioned below
 - a ~<header>~ element, inside of which there should also be:
   - an ~<h1>~ element with the figure's name
@@ -118,18 +120,19 @@ In this exercise, you will write a short blog post (approximately 200 words) in 
 - a ~<section>~ element with class ~sources~.
 - inside your sources section, a ~<ul>~ element containing at least two ~<li>~ elements, each of which lists one source that you used in writing your blog post. The title of the source should be a hyperlink with ~href~ attribute linking back to the source. If your source is a print book or article, the link should point to the source's listing in the library catalog. In the extremely unlikely event that the source is not among the library's holdings, use an Amazon or Google Scholar link instead.  
 
-** COMMENT Problem 3: Blog Post Styling
-In this exercise, you will add style information to your post. You should write the style information in [[./Part2/style.css]]. You may make as many changes as you like, but at a minimum you should:
+*style.css* should style the page this way: 
 - add a ~<link.../>~ element to ~<head>~ in ~index.html~, with attributes ~rel~ set to "stylesheet" and ~href~ set to "./style.css"
-- set the ~width~ of the ~<header>~ element to "100%
+- ~<article>~ should be either a grid or a flexbox container. Use this method to adjust the layout of the main page elements. 
 - set the background color of ~<header>~ to something *different from* the background color of the rest of the page
 - add right and left margins to ~section.main~ and ~section.sources~
 - Add a border to ~section.sources~ to set it off from ~section.main~
 - use ~float~ to position the ~img~ tag *either* on the right or the left of the section
+
+*Note:* these requirements don't guarantee that your page will look good!  Make whatever further changes you need in order to get a look you're satisfied with.  
 ** Problem 6: Reflection
-*Required for letter grade of 'A' only.* As before, copy the file [[./Reflection/reflection-template.md]] ... but this time *please note late-breaking change* -- copy it to ~Reflection/reflection.md~. This change improves the automated tests.  Once you've copied the file, follow the directions found therein.
+*Required for letter grade of 'A' only.* As before, copy the file [[./Reflection/reflection-template.md]] ... but this time *please note change form your last assignment* -- copy it to ~Reflection/reflection.md~. This change improves the automated tests.  Once you've copied the file, follow the directions found therein.
 ** Tests
-As in our other assignments, this one conmes with a set of bundled tests designed to make your life a little easier.  To run them, first execute ~npm install -d~ from this directory. Then run either ~npm test~ or, for a slightly nicer output, ~npm run test-less-confusing~.  Even better, to have the tests run continuously every time you save changes to a file in the directory, type  ~npm run watch~ (again and always, from the root directory of the repository).
+As in our other assignments, this one conmes with a set of bundled tests designed to make your life a little easier.  To run them, first execute ~npm install~ from this directory. Then run either ~npm test~ or, for a slightly nicer output, ~npm run test-less-confusing~.  Even better, to have the tests run continuously every time you save changes to a file in the directory, type  ~npm run watch~ (again and always, from the root directory of the repository). This will start a process running which won't stop until you exit the terminal or type ~Control-c~ from inside the terminal itself. 
 
 * Handing in
 

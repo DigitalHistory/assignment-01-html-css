@@ -309,6 +309,7 @@ describe('Problem 3: Basic CSS', function() {
   });
 });
 
+
 describe('Problem 4: Layout and Media Queries', function() {
   var css =  fs.readFileSync(path.join('04', 'style.css'), 'utf8').toString();
   var html =  fs.readFileSync(path.join('04', 'index.html'), 'utf8').toString();
@@ -319,7 +320,7 @@ describe('Problem 4: Layout and Media Queries', function() {
     let m = $('main');
     expect (m.css('grid-template-rows'), 'grid-template-rows should be set to something sensible').to.not.be.undefined &&
       expect (m.css('grid-template-columns'), 'grid-template-columns should be set to something sensible').to.not.be.undefined &&
-      expect (m.css('grid-gap'), 'grid-gap should be set to something sensible').to.not.be.undefined ;
+      expect (m.css('grid-gap'), 'grid-gap should be set to something sensible').to.not.be.undefined;
   });
 
   it('<aside>', function() {
@@ -379,125 +380,148 @@ describe('Problem 5: Blog Post', function() {
   var html =  fs.readFileSync(path.join('05', 'index.html'), 'utf8').toString();
   var inline = juice.inlineContent(html, css);
   let $ = cheerio.load(inline);
-  
-  it('Post should contain a <header> element', function() {
-    assert.isAtLeast($('header').length,1,'No header elements found');
-  });
-  
-  it('Header should contain an <h1> element', function() {
-    assert.isAtLeast($('header h1').length,1,'No <h1> inside of <header>');
-           
-  });
-
-  it('Header should contain an <h2> element', function() {
-    assert.isAtLeast($('header h2').length,1,'No <h2> inside of <header>');
-           
-  });
-
-  it('h2 should contain a <span> with class "author"', function() {
-    assert.isAtLeast($('header h2 span.author').length,1,'No span.author inside of <h2>');
-           
-  });
-
-  it('Post should contain a section.main element', function() {
-    assert.isAtLeast($('section.main').length,1,'No header elements found');
-           
-  });
 
 
-  it('section.main should contain a valid img or figure tag', function() {
-    expect($('section.main img').length, 'No img tags found in section.main')
-      .to.be.at.least(1);
-    $('section.main img').each(function(i, image){
-      // console.log(image.attribs.src);
-      expect(image.attribs.src, 'image tag without src attribute for image number ' + i)
-        .to.be.a('string').that.is.not.empty;
-    }); 
-  });
-
-  it('Main section of the blog post should contain at least 175 words ', function() {
-    expect(
-      hwc($('section.main').html()), 'the main section is too short!').to.be.at.least(175);
-  });
-
-
-  it('Post should contain a section.sources element', function() {
-    assert.isAtLeast($('section.sources').length,1, 'No <section> element found with class "sources"');    
-  });
-
-  it('section.sources should contain a ul element with minimum two li elements', function(done) {
-    assert.isAtLeast($('section.sources ul').length,1,'No <ul> element inside section.sources');    
-    assert.isAtLeast($('section.sources ul li').length,2,'Did not find 2 <li> elements within <ul> inside section.sources');    
-
-    done();
-  });
-
-  it('every li element in section.sources should contain a valid a element pointing to a source', function() {
-    let items = $('section.sources ul li');
-    expect (items.length, 'Fewer than two list items in the source section').to.be.at.least(2);
-    items.each( function(i, item) {
-      assert.isAtLeast($('a', this).length,1,'No a tag in list item number ' + i);
-
-    } );
-  });
-
-  it('Blog post <head> element should contain a <link> to style.css', function() {
-    var pointstostyle = null;
-    
-    assert.isAtLeast($('link').length,1,'did not find any link elements');
-    $('link').each(function(i,link) {
-      if (link.attribs.href == 'style.css' || link.attribs.href == './style.css') {
-        pointstostyle = true ; 
-      }
+  describe('HTML structure', function() {
+    it('Post should contain a <header> element', function() {
+      assert.isAtLeast($('header').length,1,'No header elements found');
     });
-    assert.isTrue(pointstostyle, 'none of the link elements point to style.css');
-  });
-  
-  it('<header> element should have width of 100%', function (done) {
-    // console.log($('header').css('width'));
-    assert.equal($('header').css('width'),'100%', 
-      'header width should be set to 100%');
-    done();
-  });
-  it('<header> element background should be different from background of <article> element and <section> elements', function(done) {
-    assert.notEqual($('header').css('background'), $('article').css('background'), 
-      'header background should not be the same as article background ');
-    done();
-  });
-  it('section.main and section.sources should have right and left margins', function() {
-    // console.log($('section.main').css('margin-left'));
-    assert.exists($('section.main').css('margin-left'), 'margin-left property is not defined');
-    assert.exists($('section.main').css('margin-right'), 'margin-right property is not defined');
-    assert.exists($('section.sources').css('margin-left'), 'margin-left property is not defined');
-    assert.exists($('section.sources').css('margin-right'), 'margin-right property is not defined');
 
-  });
-  it('section.sources should have a border', function() {
-    assert.exists($('section.sources').css('border'), 'border property is not set');    
+    it('Header should be inside <article>', function() {
+      let element = $('header');
+      expect (element.get(0).parent().get(0).tagName, 'the parent of header is not article, is it in the right place?').to.equal('article') ;
+    });
+  
+    it('Header should contain an <h1> element', function() {
+      assert.isAtLeast($('header h1').length,1,'No <h1> inside of <header>');
+           
+    });
+
+    it('Header should contain an <h2> element', function() {
+      assert.isAtLeast($('header h2').length,1,'No <h2> inside of <header>');
+           
+    });
+
+    it('h2 should contain a <span> with class "author"', function() {
+      assert.isAtLeast($('header h2 span.author').length,1,'No span.author inside of <h2>');
+           
+    });
+
+    it('Post should contain a section.main element', function() {
+      assert.isAtLeast($('section.main').length,1,'No header elements found');
+           
+    });
+
+
+    it('section.main should contain a valid img or figure tag', function() {
+      expect($('section.main img').length, 'No img tags found in section.main')
+        .to.be.at.least(1);
+      $('section.main img').each(function(i, image){
+      // console.log(image.attribs.src);
+        expect(image.attribs.src, 'image tag without src attribute for image number ' + i)
+          .to.be.a('string').that.is.not.empty;
+      }); 
+    });
+
+    it('Main section of the blog post should contain at least 175 words ', function() {
+      expect(
+        hwc($('section.main').html()), 'the main section is too short!').to.be.at.least(175);
+    });
+
+
+    it('Post should contain a section.sources element', function() {
+      assert.isAtLeast($('section.sources').length,1, 'No <section> element found with class "sources"');    
+    });
+
+    it('section.sources should contain a ul element with minimum two li elements', function(done) {
+      assert.isAtLeast($('section.sources ul').length,1,'No <ul> element inside section.sources');    
+      assert.isAtLeast($('section.sources ul li').length,2,'Did not find 2 <li> elements within <ul> inside section.sources');    
+
+      done();
+    });
+
+    it('every li element in section.sources should contain a valid a element pointing to a source', function() {
+      let items = $('section.sources ul li');
+      expect (items.length, 'Fewer than two list items in the source section').to.be.at.least(2);
+      items.each( function(i, item) {
+        assert.isAtLeast($('a', this).length,1,'No a tag in list item number ' + i);
+
+      } );
+    });
+
+    it('Blog post <head> element should contain a <link> to style.css', function() {
+      var pointstostyle = null;
     
-  });
-  it('images should float and text should wrap around them', function() {
-    assert.exists($('img').css('float'), 'float property not set on images');
-  });
-  
-});
-
-
-
-describe('Problem 3: Blog Post Style', function () {
-
-  before(function (done)  {
-    // set up tests, as above
-    inlineCss(index, {url:'file://' + __dirname + '/../',
-      removeLinkTags:false})
-      .then(function(inlined ){
-        $ = cheerio.load(inlined);
+      assert.isAtLeast($('link').length,1,'did not find any link elements');
+      $('link').each(function(i,link) {
+        if (link.attribs.href == 'style.css' || link.attribs.href == './style.css') {
+          pointstostyle = true ; 
+        }
       });
-    done(); 
+      assert.isTrue(pointstostyle, 'none of the link elements point to style.css');
+    });
+
   });
+
+  describe('CSS properties', function() {
+    it('<article> should use flexbox or grid', function() {
+      let element = $('article');
+      expect(element.css('display')==='grid' || element.css('display') === 'flex' ,
+        'CSS property "display" should be set to "grid" or "flex"').to.be.true;
+    });
+    
+    // it('<header> element should have width of 100%', function (done) {
+    //   // console.log($('header').css('width'));
+    //   assert.equal($('header').css('width'),'100%', 
+    //     'header width should be set to 100%');
+    //   done();
+    // });
+    
+    it('<header> element background should be different from background of <article> element and <section> elements', function(done) {
+      assert.notEqual($('header').css('background'), $('article').css('background'), 
+        'header background should not be the same as article background ');
+      done();
+    });
+    
+    it('section.main and section.sources should have right and left margins', function() {
+    // console.log($('section.main').css('margin-left'));
+      assert.exists($('section.main').css('margin-left'), 'margin-left property is not defined');
+      assert.exists($('section.main').css('margin-right'), 'margin-right property is not defined');
+      assert.exists($('section.sources').css('margin-left'), 'margin-left property is not defined');
+      assert.exists($('section.sources').css('margin-right'), 'margin-right property is not defined');
+
+    });
+    it('section.sources should have a border', function() {
+      assert.exists($('section.sources').css('border'), 'border property is not set');    
+    
+    });
+    it('images should float and text should wrap around them', function() {
+      assert.exists($('img').css('float'), 'float property not set on images');
+    });
+
+  });
+
+  
+  
+  
+});
+
+
+
+// describe('Problem 3: Blog Post Style', function () {
+
+//   before(function (done)  {
+//     // set up tests, as above
+//     inlineCss(index, {url:'file://' + __dirname + '/../',
+//       removeLinkTags:false})
+//       .then(function(inlined ){
+//         $ = cheerio.load(inlined);
+//       });
+//     done(); 
+//   });
   
 
-});
+// });
 
 
 describe('Reflection Checks (not required unless you are attempting an "A" grade!)', function() {
