@@ -132,7 +132,7 @@ In this exercise, you will write a short blog post (approximately 200 words) in 
 ** Problem 6: Reflection
 *Required for letter grade of 'A' only.* As before, copy the file [[./Reflection/reflection-template.md]] ... but this time *please note change form your last assignment* -- copy it to ~Reflection/reflection.md~. This change improves the automated tests.  Once you've copied the file, follow the directions found therein.
 ** Tests
-As in our other assignments, this one conmes with a set of bundled tests designed to make your life a little easier.  To run them, first execute ~npm install~ from this directory. Then run either ~npm test~ or, for a slightly nicer output, ~npm run test-less-confusing~.  Even better, to have the tests run continuously every time you save changes to a file in the directory, type  ~npm run watch~ (again and always, from the root directory of the repository). This will start a process running which won't stop until you exit the terminal or type ~Control-c~ from inside the terminal itself. 
+As in our other assignments, this one comes with a set of bundled tests designed to make your life a little easier.  To run them, first execute ~npm install~ from this directory. Then run either ~npm test~ or, for a slightly nicer output, ~npm run test-less-confusing~.  Even better, to have the tests run continuously every time you save changes to a file in the directory, type  ~npm run watch~ (again and always, from the root directory of the repository). This will start a process running which won't stop until you exit the terminal or type ~Control-c~ from inside the terminal itself. 
 
 * Handing in
 
