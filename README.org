@@ -118,6 +118,7 @@ In this exercise, you will write a short blog post (approximately 200 words) in 
 - a ~<section>~ element with class ~sources~.
 - inside your sources section, a ~<ul>~ element containing at least two ~<li>~ elements, each of which lists one source that you used in writing your blog post. The title of the source should be a hyperlink with ~href~ attribute linking back to the source. If your source is a print book or article, the link should point to the source's listing in the library catalog. In the extremely unlikely event that the source is not among the library's holdings, use an Amazon or Google Scholar link instead.  
 
+
 ** COMMENT Problem 3: Blog Post Styling
 In this exercise, you will add style information to your post. You should write the style information in [[./Part2/style.css]]. You may make as many changes as you like, but at a minimum you should:
 - add a ~<link.../>~ element to ~<head>~ in ~index.html~, with attributes ~rel~ set to "stylesheet" and ~href~ set to "./style.css"
