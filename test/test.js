@@ -7,7 +7,7 @@ const path = require('path'),  // find paths
       gitCommits = require('git-commits'), // git stuff -- should al lbe updated in 2020
       gitConfig = require('git-config'),
       gitState = require('git-state'),
-      inlineCss = require('inline-css'), //for css testing
+      // inlineCss = require('inline-css'), //for css testing
       // request = require('request'),  // not used -- remove when safe
       cheerio=require('cheerio'), // should get rid of this is poss in favor of jsdom
       hwc = require('html-word-count'); // important!
@@ -40,8 +40,8 @@ const matchesProfEmail = function (email, profEmails) {
 
 
 // global vars for git tests
-const studentCommits = 0,
-      minCommits = 4;
+let studentCommits = 0,
+    minCommits = 4;
 
 
 // var // indexPath = 'index.html', // this really needs to be updated
