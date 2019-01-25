@@ -389,7 +389,7 @@ describe('Problem 5: Blog Post', function() {
 
     it('Header should be inside <article>', function() {
       let element = $('header');
-      expect (element.get(0).parent().get(0).tagName, 'the parent of header is not article, is it in the right place?').to.equal('article') ;
+      expect (element.get(0).parentNode().get(0).tagName, 'the parent of header is not article, is it in the right place?').to.equal('article') ;
     });
   
     it('Header should contain an <h1> element', function() {
