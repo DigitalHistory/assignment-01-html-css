@@ -4,7 +4,7 @@
   "description": "An assignment for Digital History at University of Toronto. Tests basic Javascript skills.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -t 0 test/test.js  --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults",
+    "test": "mocha -t 0 test/test.js --grep \"Problem 4\" --invert  --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults",
     "test-less-confusing": "mocha -t 0 test/test.js --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults || true",
     "watch": "mocha -t 0 test/test.js   --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults -w"
   },
@@ -22,7 +22,9 @@
     "url": "https://github.com/titaniumbones/assignment-web-skills-intro/issues"
   },
   "homepage": "https://github.com/titaniumbones/assignment-web-skills-intro#readme",
-  "dependencies": {},
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2"
+  },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-fs": "^2.0.0",
