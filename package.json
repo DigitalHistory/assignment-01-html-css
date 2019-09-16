@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/titaniumbones/assignment-web-skills-intro#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2"
+    "cheerio": "^1.0.0-rc.3",
+    "jquery": "^3.4.1",
+    "jsdom": "^15.1.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -32,10 +34,8 @@
     "git-config": "0.0.7",
     "git-state": "^4.1.0",
     "html-word-count": "^2.0.0",
-    "inline-css": "^2.2.3",
-    "juice": "^5.1.0",
     "mocha": "^5.2.0",
-    "mochawesome": "^3.1.1",
+    "mochawesome": "^3.1.2",
     "path": "^0.12.7"
   },
   "oldDependencies": {
