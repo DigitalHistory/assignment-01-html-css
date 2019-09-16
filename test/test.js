@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 'use strict';
 
 
@@ -20,6 +21,8 @@ const chai=require('chai'), // testing stuff
       assert=chai.assert;
 
 // const { JSDOM } = jsdom;
+const { JSDOM } = require('jsdom');
+
 
 chai.use(require('chai-fs'));
 
@@ -114,35 +117,7 @@ var links = [];
 // const index = fs.readFileSync(indexPath, 'utf8');
 const problem1 = fs.readFileSync(path.join('01', 'index.html'), 'utf8'),
       problem2 = fs.readFileSync(path.join('02', 'index.html'), 'utf8');
-      // problem3 = fs.readFileSync(path.join('03', 'index.html'), 'utf8'); // don't need .toString();
-// problem4 = fs.readFileSync(path.join('04', 'index.html'), 'utf8');
 
-// const baseDir = 'file://'+path.dirname(path.resolve(indexPath))+'/';
-
-// var testhtml = `<!DOCTYPE html>
-// <html>
-//   <head></head>
-//   <body>
-//     <table>
-//       <tr>
-//         <td class = "PM">Some Name</td>
-//         <td></td>
-//         <td></td>
-//       <</tr>
-//     </table>
-//   </body>
-// </html>
-// `;
-
-//var { window } = new JSDOM(`<!DOCTYPE html>`);
-// var { window } = new JSDOM(testhtml);
-// var jq = require('jquery')(window);
-
-
-// // abortive code placed here vain hope of unifying web + node tests
-// let local$ = cheerio.load(index);
-// links = local$('a'); 
-// console.log ('word count is ' + hwc(local$('section.main').html())); 
 
 
 
@@ -156,23 +131,20 @@ gitConfig(function (err, config) {
 }); 
 
 
-
 //////////////////////////////////////
 ///
 ///   tests start here
 ///
 //////////////////////////////////////
 
+
+// TODO: convert from cheerio to jsdom/jquery
 describe('Problem 1: Structure a Letter: ', function() {
-  before(function(done) {
-    done();
-  });
-
   let $ = cheerio.load(problem1);
-
+ 
   describe('Header Tests', function() {
     it('Sender div contains the right info', function() {
-      console.log($('header div.senderinfo p a')[0].attribs.href);
+      //console.log($('header div.senderinfo p a')[0].attribs.href);
       expect($('header div.senderinfo p').length, 'There should be exactly one <p> element inside div.senderinfo').to.equal(1) &&
         expect($('header div.senderinfo p br').length,'there are no <br> elements inside ' ).to.be.above(0) &&
         expect($('header div.senderinfo p a').length, 'There should be one link in the sender div').to.equal(1) &&
@@ -246,8 +218,8 @@ describe('Problem 2: Tables', function() {
     expect ($('article > table').children().length, 'Do you have a table, and does it have any content?').to.be.at.least(1);
   });
 
-  it('Table body has at least 3 rows', function() {
-    expect ($('table > tbody > tr').length, 'Each Prime Minister should get their own "<tr>" element with <td> elements inside').to.equal(3) ;
+  it('Table body has  3 content rows', function() {
+    expect ($('table > tbody > tr').length, 'Each Prime Minister should get their own "<tr>" element with <td> elements inside').to.be.at.least(3) ;
   });
 
   it('tr elements have 4 columns each', function() {
@@ -267,17 +239,24 @@ describe('Problem 2: Tables', function() {
 });
 
 // });
-const juice = require('juice');
 describe('Problem 3: Basic CSS', function() {
 
-  before(function() {
+  before(async function() {
+    let jsdom = await JSDOM.fromFile("03/index.html", {
+      resources: "usable",
+      runScripts: "dangerously"
+    });
     
+    await new Promise(resolve =>
+      jsdom.window.addEventListener("load", resolve)      
+    );
+    let window  = jsdom.window;
+    let {document } = global.document = window;
+    // global scope absolutely required unfortunately
+    let $ = global.$ = require('jquery')(window);
   });
-  var css =  fs.readFileSync(path.join('03', 'style.css'), 'utf8').toString();
-  var html =  fs.readFileSync(path.join('03', 'index.html'), 'utf8').toString();
-  var inline = juice.inlineContent(html, css);
-  let $ = cheerio.load(inline);
 
+   
   it('<main>', function() {
     let m = $('main');
     expect(m.css('max-width'), 'max-width property should be set to 50 rem').to.equal('50rem') &&
@@ -287,7 +266,7 @@ describe('Problem 3: Basic CSS', function() {
   it('<header> and <footer>', function() {
     let h = $('header'),
         f = $('footer');
-    expect (h.css('background-color'), 'background-color property should be non-null').to.not.be.undefined &&
+    expect (h.css('background-color'), 'background-color property should be non-null').to.be.ok &&
       expect(h.css('background-color'), 'background-color of header and footer should be the same').to.equal(f.css('background-color')) &&
       expect(h.css('padding-top'), 'padding-top should be set to 5px').to.equal('5px') &&
       expect(f.css('min-height'), 'min-height of footer should be 5rem').to.equal('5rem'); 
@@ -303,24 +282,36 @@ describe('Problem 3: Basic CSS', function() {
   it('article img', function() {
     let i = $('article img');
     expect (i.css('max-width'), 'max-width should be set to 15rem').to.equal('15rem') &&
-    expect(i.css('border-radius'), 'border-radius property should be set').to.not.be.undefined  &&
-    expect (i.css('margin-right'), 'margin-right should be set to 5px').to.not.be.undefined ;
+      expect(i.css('border-radius'), 'border-radius property should be set')
+      .to.not.be.undefined  &&
+      expect (i.css('margin-right'), 'margin-right should be set to 5px').to.equal('5px') ;
  
   });
 });
 
 
 describe('Problem 4: Layout and Media Queries', function() {
-  var css =  fs.readFileSync(path.join('04', 'style.css'), 'utf8').toString();
-  var html =  fs.readFileSync(path.join('04', 'index.html'), 'utf8').toString();
-  var inline = juice.inlineContent(html, css);
-  let $ = cheerio.load(inline);
+  
+    before(async function() {
+    let jsdom = await JSDOM.fromFile("04/index.html", {
+      resources: "usable",
+      runScripts: "dangerously"
+    });
+    
+    await new Promise(resolve =>
+      jsdom.window.addEventListener("load", resolve)      
+    );
+    let window  = jsdom.window;
+    let {document } = global.document = window;
+    // global scope absolutely required unfortunately
+    let $ = global.$ = require('jquery')(window);
+  });
 
   it('<main>', function() {
     let m = $('main');
     expect (m.css('grid-template-rows'), 'grid-template-rows should be set to something sensible').to.not.be.undefined &&
       expect (m.css('grid-template-columns'), 'grid-template-columns should be set to something sensible').to.not.be.undefined &&
-      expect (m.css('grid-gap'), 'grid-gap should be set to something sensible').to.not.be.undefined;
+      expect (m.css('gap'), 'gap should be set to something sensible').to.not.be.undefined;
   });
 
   it('<aside>', function() {
@@ -343,8 +334,12 @@ describe('Problem 4: Layout and Media Queries', function() {
 
   it('#box1', function() {
     let b = $('#box1');
-    expect (b.css('grid-row'), 'grid-row should be so that the box spans two rows ,staring at the top').to.equal('1/3') &&
-      expect (b.css('grid-column'), 'grid-column should be so that the box spans two columns ,staring at the left').to.equal('1/3'); 
+    expect (b.css('grid-row'),
+            'grid-row should be so that the box spans two rows ,staring at the top')
+      .to.equal('1/3') &&
+      expect (b.css('grid-column'),
+              'grid-column should be so that the box spans two columns ,staring at the left')
+      .to.equal('1/3'); 
   });
 
   it('#box2', function() {
@@ -367,8 +362,8 @@ describe('Problem 4: Layout and Media Queries', function() {
 
   it('#box5', function() {
     let b = $('#box5');
-    expect (b.css('grid-row'), 'grid-row should be so that the box sits at the top in a single grid cell' ).to.equal('1/2') &&
-      expect (b.css('grid-column'), 'grid-column should be so that the box sits at the right in a single grid box').to.equal('5/6'); 
+    expect (b.css('grid-row'), 'grid-row should be so that the box sits at the top in a single grid cell' ).to.be.oneOf([1,'1/2']) &&
+      expect (b.css('grid-column'), 'grid-column should be so that the box sits at the right in a single grid box').to.be.oneOf(['5','5/6']); 
   });
   
 });
@@ -376,10 +371,21 @@ describe('Problem 4: Layout and Media Queries', function() {
 
 describe('Problem 5: Blog Post', function() {
 
-  var css =  fs.readFileSync(path.join('05', 'style.css'), 'utf8').toString();
-  var html =  fs.readFileSync(path.join('05', 'index.html'), 'utf8').toString();
-  var inline = juice.inlineContent(html, css);
-  let $ = cheerio.load(inline);
+  before(async function() {
+    let jsdom = await JSDOM.fromFile("05/index.html", {
+      resources: "usable",
+      runScripts: "dangerously"
+    });
+    
+    await new Promise(resolve =>
+      jsdom.window.addEventListener("load", resolve)      
+    );
+    let window  = jsdom.window;
+    let {document } = global.document = window;
+    // global scope absolutely required unfortunately
+    let $ = global.$ = require('jquery')(window);
+  });
+
 
 
   describe('HTML structure', function() {
@@ -389,7 +395,7 @@ describe('Problem 5: Blog Post', function() {
 
     it('Header should be inside <article>', function() {
       let element = $('header');
-      expect (element.get(0).parentNode().get(0).tagName, 'the parent of header is not article, is it in the right place?').to.equal('article') ;
+      expect (element[0].parentNode.tagName.toLowerCase(), 'the parent of header is not article, is it in the right place?').to.equal('article') ;
     });
   
     it('Header should contain an <h1> element', function() {
@@ -418,14 +424,14 @@ describe('Problem 5: Blog Post', function() {
         .to.be.at.least(1);
       $('section.main img').each(function(i, image){
       // console.log(image.attribs.src);
-        expect(image.attribs.src, 'image tag without src attribute for image number ' + i)
+        expect($(this).attr('src'), 'image tag without src attribute for image number ' + i)
           .to.be.a('string').that.is.not.empty;
       }); 
-    });
+    });'';
 
     it('Main section of the blog post should contain at least 175 words ', function() {
       expect(
-        hwc($('section.main').html()), 'the main section is too short!').to.be.at.least(175);
+        hwc($('section.main').html()), 'the main section is too short!').to.be.at.least(190);
     });
 
 
@@ -449,17 +455,20 @@ describe('Problem 5: Blog Post', function() {
       } );
     });
 
+    // TODO: a bit ugly still
     it('Blog post <head> element should contain a <link> to style.css', function() {
-      var pointstostyle = null;
-    
+      let pointstostyle = null;
+      console.log("href: " + $('link').attr('href'));
+      console.log("href2: " + $('link')[0].attribs);
       assert.isAtLeast($('link').length,1,'did not find any link elements');
-      $('link').each(function(i,link) {
-        if (link.attribs.href == 'style.css' || link.attribs.href == './style.css') {
+      $('link').each(function(i) {
+        if ($(this).attr('href') == 'style.css' || $(this).attr('href') == './style.css') {
           pointstostyle = true ; 
         }
       });
       assert.isTrue(pointstostyle, 'none of the link elements point to style.css');
     });
+
 
   });
 
@@ -478,8 +487,13 @@ describe('Problem 5: Blog Post', function() {
     // });
     
     it('<header> element background should be different from background of <article> element and <section> elements', function(done) {
-      assert.notEqual($('header').css('background'), $('article').css('background'), 
-        'header background should not be the same as article background ');
+      let hb = $('header').css('background'),
+          ab = $('article').css('background');
+      console.log('ARTICLE: ' + $('article').css('background'));
+      console.log('HEADER: ' + $('header').css('background'));
+      expect(hb).to.not.equal(ab);
+      // assert.notEqual($('header').css('background') + 'hello', $('article').css('background'), 
+      //   'header background should not be the same as article background ');
       done();
     });
     
@@ -507,21 +521,6 @@ describe('Problem 5: Blog Post', function() {
 });
 
 
-
-// describe('Problem 3: Blog Post Style', function () {
-
-//   before(function (done)  {
-//     // set up tests, as above
-//     inlineCss(index, {url:'file://' + __dirname + '/../',
-//       removeLinkTags:false})
-//       .then(function(inlined ){
-//         $ = cheerio.load(inlined);
-//       });
-//     done(); 
-//   });
-  
-
-// });
 
 
 describe('Reflection Checks (not required unless you are attempting an "A" grade!)', function() {
