@@ -256,7 +256,11 @@ describe('Problem 3: Basic CSS', function() {
     let $ = global.$ = require('jquery')(window);
   });
 
-   
+  it('<html>', () => {
+    let h = $('html');
+    expect (h.css('font-family'), 'font-family should be set to "Roboto", sans-serif')
+      .to.equal('"Roboto", sans-serif');
+});  
   it('<main>', function() {
     let m = $('main');
     expect(m.css('max-width'), 'max-width property should be set to 50 rem').to.equal('50rem') &&

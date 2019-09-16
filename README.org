@@ -6,10 +6,9 @@ You do not have to become a coder to do well in this course.  However, you /will
 * Expectations
 This assignment is graded pass/fail. You will only get credit if *all of your code runs as required.* To pass the assignment, you must:
 - successfully create a github repositor and clone a local copy
-- complete all three parts of this assignment, such that both the student-visible tests and the instructor/machine-visible tests all pass.  See below for details but please note that Part 1 includes some work which is to be done on the [[https://codecademy.com/][Codecademy]] website
+- complete all five (optionally 6) problems of this assignment, such that both the student-visible tests and the instructor/machine-visible tests all pass.  See below for details. 
 - commit your work to git as you go, so that a query of the git history will show multiple steps. Please note that git commits are timestamped and unique; they are an excellent defense against accusations of cheating, so please use them extensively.
 - push all your changes to Github
-- submit your assignment via Github Pull Request
 
 * Preparation
 
@@ -20,37 +19,30 @@ Please work your way through the following HTML and CSS resources (these are als
 - [[https://developer.mozilla.org/en-US/docs/Learn/HTML#Modules][MDN: Learn  HTML Pathway]]. You won't need all of this, but a lot of it is interesting.
 - [[https://developer.mozilla.org/en-US/docs/Learn/CSS][MDN: Learn CSS Pathway]]. Again, there is more here than you need, but big parts of it will be used in this assignment. 
 
-
 * Details
 
-Start the assignment by clicking the link on the [[https://digitalhistory.github.io/dh-website/assignment/][Assignments Page of the DH website]]. Then clone locally via the "Clone or Download" process [[https://help.github.com/articles/cloning-a-repository/][described here]], or just use [[https://code.visualstudio.com/docs/editor/versioncontrol#_cloning-a-repository][the VSCode git commands]]. Do your work in VSCode, then push your repo to the cloud when you're ready. 
+Presumably you got here by clicking on the link on on the [[https://digitalhistory.github.io/assignment/][Assignments Page of the DH website]]. Then clone locally via the "Clone or Download" process [[https://help.github.com/articles/cloning-a-repository/][described here]], or just use [[https://code.visualstudio.com/docs/editor/versioncontrol#_cloning-a-repository][the VSCode git commands]]. Do your work in VSCode, then push your repo to the cloud when you're ready. 
 
 Web pages are composed of three components:  HTML, CSS, and Javascript.  HTML provides the /structure and content/ of a web page; CSS controls the /style of presentation/; and Javascript permits /dynamic modification/ of both.  In this assignment, we explore the first two components, HTML and CSS 
 
-
-
-** COMMENT Problem 1: Codecademy.com
-Codeacademy.com is a platform that focusses on teaching web skills; [[http://www.codecademy.com/][head over there and set up an account]]. Once you've done that, simply complete the [[http://www.codecademy.com/tracks/web][HTML & CSS]] course.
-
-When you have finished this course, find the link to your /achievements page/. This page should have a URL with the structure ~https://www.codecademy.com/users/YOURCODECADEMYUSERNAME/achievements~. You can also get to this address by clicking "view my profile under the top right menu item with your picture on it, and from that page clicking "Badges".
-
-Embed a link to this page in the file [[./index.html]].  You may add any other content if you wish, but this link must exist and point to your unique profile.  
-
 ** Problem 1: HTML Structure 
-Make sure you've read [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started][intro to HTML overview]], [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML][Metadata overview]], and  
-In the directory ~01~, find the file ~01/letter.txt.  Your job is to convert this raw text into /structured HTML/.  I've provided you with some starter code in ~01/index.html~. Please do so in the following way:
+Make sure you've read [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started][intro to HTML overview]] and have explored enough to orient yourself when you run into difficulties. 
 
-- add your name, email address and the date
-- add the sender info in the appropriate ~div~ element. Wrap the information in a ~<p>~ element and divide lines with [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br][<br> elements]] 
-- add the recipient info in the ~recipient~ div element, wrap in a ~p~ and divide w ~br~ as above. 
-- add the date in the ~<time>~ element
-- make sure that both email addresses are [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#E-mail_links][working mailto: links]]
-- add the text of the greeting line ("Dear Prof...") to the ~div.greeting!~ element
-- add the main text of the letter to the ~div.text~ element.  Separate into paragraphs with ~<p>~ elements, but also note:
+In the directory ~01~, find the file ~01/letter.txt~.  Your job is to convert this raw text into /structured HTML/.  I've provided you with some starter code in ~01/index.html~. Please make changes as follow:
+
+- Header: 
+  - add the sender info in the appropriate ~div~ element. Wrap the information in a ~<p>~ element and divide lines with [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br][<br> elements]] 
+  - add the date in the ~<time>~ element
+  - add the recipient info in the ~recipient~ div element, wrap in a ~p~ and divide w ~br~ as above. 
+  - make sure that both email addresses are [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#E-mail_links][working mailto: links]]
+- Main Text
+  - add the text of the greeting line ("Dear Prof...") to the ~div.greeting~ element
+  - add the main text of the letter to the ~div.text~ element.  Separate into paragraphs with ~<p>~ elements, but also note:
   - The lines reading ~Assignments~, ~Lectures~ and ~Course Website~ should be ~<h1>~ elements rather than ~<p>~ elements 
   - The lines starting with ~- A...~ should be made into [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals#Unordered][list elements in an unordered list]]
-- add the closing (Sincerely,... yr name) to the.... wait for it...  that's right, to the ~div.closing~ element
-- Add the motto ("Perpetuis...") to the ~footer~ element
+  - add the closing (Sincerely,... yr name) to the.... wait for it...  that's right, to the ~div.closing~ element
+- Footer:
+  - Add the motto ("Perpetuis...") to the ~footer~ element
 
 If you've passed all the tests, then you should be fine!
 
@@ -64,8 +56,6 @@ HTML tables are sometimes misused as a styling technique, but they are designed 
 - add 4 ~<img>~ tags to ~<footer>~
 
 *Resources:* [[https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables][MDN Table Lesson]]
-
-
 
 ** Problem 3: Basic Styling 
 CSS is an enormous topic, so it will be easy to get lost.  In this problem we deal with a few basic CSS properties, mostly affecting fonts, colors, and spacing. Start with the well-structured HTML in ~index.html~, to which very little styling has been applied so far.
