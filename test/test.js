@@ -311,7 +311,7 @@ describe('Problem 3: Basic CSS', function() {
 
 
 describe('Problem 4: Layout and Media Queries', function() {
-  var css =  fs.readFileSync(path.join('04', 'style.css'), 'utf8').toString();
+  var  css =  fs.readFileSync(path.join('04', 'style.css'), 'utf8').toString();
   var html =  fs.readFileSync(path.join('04', 'index.html'), 'utf8').toString();
   var inline = juice.inlineContent(html, css);
   let $ = cheerio.load(inline);
@@ -343,32 +343,32 @@ describe('Problem 4: Layout and Media Queries', function() {
 
   it('#box1', function() {
     let b = $('#box1');
-    expect (b.css('grid-row'), 'grid-row should be so that the box spans two rows ,staring at the top').to.equal('1/3') &&
-      expect (b.css('grid-column'), 'grid-column should be so that the box spans two columns ,staring at the left').to.equal('1/3'); 
+    expect (b.css('grid-row'), 'grid-row should be set such that the box spans two rows ,staring at the top').to.equal('1/3') &&
+      expect (b.css('grid-column'), 'grid-column should be set such that the box spans two columns ,staring at the left').to.equal('1/3'); 
   });
 
   it('#box2', function() {
     let b = $('#box2');
-    expect (b.css('grid-row'), 'grid-row should be so that the box spans two rows, staring one from the top').to.equal('2/4') &&
-      expect (b.css('grid-column'), 'grid-column should be so that the box spans two columns, starting one form the left').to.equal('2/4') ;
+    expect (b.css('grid-row'), 'grid-row should be set such that the box spans two rows, staring one from the top').to.equal('2/4') &&
+      expect (b.css('grid-column'), 'grid-column should be set such that the box spans two columns, starting one form the left').to.equal('2/4') ;
   });
 
   it('#box3', function() {
     let b = $('#box3');
-    expect (b.css('grid-row'), 'grid-row should be so that the box spans two rows, staring two from the top').to.equal('3/5') &&
-      expect (b.css('grid-column'), 'grid-column should be so that the box spans two columns, starting two from the left').to.equal('3/5') ;
+    expect (b.css('grid-row'), 'grid-row should be set such that the box spans two rows, staring two from the top').to.equal('3/5') &&
+      expect (b.css('grid-column'), 'grid-column should be set such that the box spans two columns, starting two from the left').to.equal('3/5') ;
   });
 
   it('#box4', function() {
     let b = $('#box4');
-    expect (b.css('grid-row'), 'grid-row should be so that the box spans two rows, staring two from the bottom').to.equal('4/6') &&
-      expect (b.css('grid-column'), 'grid-column should be so that the box spans two columns, starting two from the right').to.equal('4/6') ;
+    expect (b.css('grid-row'), 'grid-row should be set such that the box spans two rows, staring two from the bottom').to.equal('4/6') &&
+      expect (b.css('grid-column'), 'grid-column should be set such that the box spans two columns, starting two from the right').to.equal('4/6') ;
   });
 
   it('#box5', function() {
     let b = $('#box5');
-    expect (b.css('grid-row'), 'grid-row should be so that the box sits at the top in a single grid cell' ).to.equal('1/2') &&
-      expect (b.css('grid-column'), 'grid-column should be so that the box sits at the right in a single grid box').to.equal('5/6'); 
+    expect (b.css('grid-row'), 'grid-row should be set such that the box sits at the top in a single grid cell' ).to.be.oneOf(['1','1/2']) &&
+      expect (b.css('grid-column'), 'grid-column should be set such that the box sits at the right in a single grid box').to.be.oneOf(['5','5/6']); 
   });
   
 });
@@ -389,8 +389,8 @@ describe('Problem 5: Blog Post', function() {
 
     it('Header should be inside <article>', function() {
       let element = $('header');
-      expect (element.get(0).parentNode().get(0).tagName, 'the parent of header is not article, is it in the right place?').to.equal('article') ;
-    });
+      expect (element.get(0).parentNode().get(0).tagName, 'the parent of header is not article, is it in the right place?').to.equal}('article') ;
+      );
   
     it('Header should contain an <h1> element', function() {
       assert.isAtLeast($('header h1').length,1,'No <h1> inside of <header>');

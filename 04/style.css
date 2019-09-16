@@ -25,6 +25,11 @@ main>* {
     
 }
 
+nav {
+    background-color: rgba(30,200,30,0.3);
+    grid-area: 
+}
+
 
 aside {
     background-color: rgba(143, 81, 188, 0.3);
@@ -45,11 +50,6 @@ section.sidebar img {
     max-width: 80%; /* you'll see why this is useful soon, I promise!*/
     border: 1px solid black;
     border-radius: 5px;
-}
-
-nav {
-    background-color: rgba(30,200,30,0.3);
-
 }
 
 article {

@@ -5,7 +5,8 @@
       "node": true,
       "mocha" : true
     },
-    "extends": "eslint:recommended",
+  "plugins": ["mocha"],
+    "extends": "plugin/mocha:recommended",
     "parserOptions": {
       "ecmaVersion": 6,
         "sourceType": "module"
