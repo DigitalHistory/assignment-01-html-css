@@ -5,7 +5,7 @@ main {
 }
 
 main>header, main>article, main>footer {
-    border: 1px violet solid;
+    border: 3px magenta solid;
     border-radius: 5px;
     margin: 10px;
     
@@ -20,7 +20,7 @@ main>article {
 
 main>article>* {
     margin: 5px;
-    border: 1px cyan solid;
+    border: 3px darkblue solid;
 }
 
 main>article>div.text {
