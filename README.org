@@ -82,7 +82,9 @@ Here we tackle the difficult subject of CSS layout. The entire [[https://develop
 
 Your job is to take the HTML given to you in ~index.html~ and make it look like this:
 
-https://screenshotscdn.firefoxusercontent.com/images/d74fd31d-2e85-4800-b09c-e80605df5353.png
+[[file:./04/grid.png][./04/grid.png]]
+
+On your phone it will look a little different, kind of like this: [[file:04/grid-phone.png][./04/grid-phone.png]] 
 
 As you can see, it doesn't look very much like this yet!  This page is somewhat complicated. It uses "nested" layouts in order to expose you to both flexbox and two different ways of setting up a CSS Grid layout. In the solution key layout, 
 - ~<main>~ is a grid "parent", with the directive ~display: grid~. It has 4 direct children: ~nav, section.sidebar, article~, and ~aside~. Each of these is a grid "child" which must be assigned to one of the grid template areas in the main grid.
@@ -94,7 +96,7 @@ I've added in the relevant CSS selectors and declarations; all you need to do is
 - fill in grid-template-columns and grid-template rows so that the main column is *4 times as wide as the sides* and *4 times as tall as the nav*. Use ~fr~ units for consistency.
 - Add ~grid-area~ declarations for all the direct children of ~<main>~.
 - fill in ~flex-direction~ and optionally ~justify-content~ and ~align-items~ to make the ~section.sidebar~ flexbox layout work right
-- optionally fill in the ~grid-gap~ declaration in the ~article~ ruleset
+- optionally fill in the ~gap~ declaration in the ~article~ ruleset
 - fill in ~grid-row~ and ~grid-column~ for #box1 through #box5.
 - in the ~@media~ query, fill in the ~flex-direction~ for ~section.sidebar~
 
