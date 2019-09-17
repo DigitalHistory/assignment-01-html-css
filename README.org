@@ -128,13 +128,7 @@ As in our other assignments, this one comes with a set of bundled tests designed
 
 +As mentioned above: when you are finished -- when your code passes all the tests -- submit your code via pull request.  This is the only acceptable submission process!+ 
 
-The above method is *deprecated*. Github Classroom no longer uses forks for assignments (argh!). Instead, *submission is accomplished automatically simply by pushing to the ~master~ branch*. So, no need to submit a Pull Request!
-
-** Test Results
-
-You already know how to run tests on your own machines (see above). But in this assignment, when you submit your work, the test will also run automatically whenever you submit code to github. Cool! This kind of automated testing is sometimes called "Continuous Integration" and in our case, the service is provided by a company called [[https://about.travis-ci.com/][Travis]].  Travis will check your work, just like you can do manually, but since it works directly with your submission, its results will generally be exactly the same as the results I will get on my local machine.
-
-Travis will tend to slow down close to submission deadlines, as it will only perform one "build" at a time. So if you want this feedback, it's best to submit early!
+The above method is *deprecated*. Github Classroom no longer uses forks for assignments. Instead, *submission is accomplished automatically simply by pushing to the ~master~ branch*. So, no need to submit a Pull Request!
 
 ** Resubmission 
 
