@@ -8,28 +8,21 @@ const path = require('path'),  // find paths
       gitCommits = require('git-commits'), // git stuff -- should al lbe updated in 2020
       gitConfig = require('git-config'),
       gitState = require('git-state'),
-      // inlineCss = require('inline-css'), //for css testing
-      // request = require('request'),  // not used -- remove when safe
       cheerio=require('cheerio'), // should get rid of this is poss in favor of jsdom
       hwc = require('html-word-count'); // important!
-      // jsdom = require('jsdom'),
-      // barista = require('seed-barista');
-      //      jsdom = require('jsdom');  // jquery + dom queries
       
 const chai=require('chai'), // testing stuff
       expect=chai.expect, // stupidly using both assert and expect
       assert=chai.assert;
 
-// const { JSDOM } = jsdom;
+// requiring JSDOM as recommended
 const { JSDOM } = require('jsdom');
 
-
+// allow file system tests
 chai.use(require('chai-fs'));
 
 var repoPath = path.resolve(process.env.REPO || (__dirname + '/../.git'));
 var ignoreCommitEmails = 'matt.price@utoronto.ca'; // ignore my own commits
-
-
 
 // get repo path
 /**
@@ -47,14 +40,11 @@ let studentCommits = 0,
     minCommits = 4;
 
 
-// var // indexPath = 'index.html', // this really needs to be updated
-//caLink=''; // no idea what this is
 
 // global vars for path tests
-// const pr = new RegExp('https://www.codecademy.com/users/(.*)/achievements');
-
 let name,email,githubid; // we'll need these throughout
 
+// set the config vars
 gitConfig(function (err, config) {
   if (err) return done(err);
   if (config.user.name) {name = config.user.name;}
@@ -62,6 +52,16 @@ gitConfig(function (err, config) {
   if (config.github.user) {githubid = config.github.user;}
   
 });
+
+
+// more variables to be used later
+var links = [];
+// const index = fs.readFileSync(indexPath, 'utf8');
+const problem1 = fs.readFileSync(path.join('01', 'index.html'), 'utf8'),
+      problem2 = fs.readFileSync(path.join('02', 'index.html'), 'utf8');
+
+
+
 /////////////////////////////
 ///
 ///  tests start here
@@ -108,34 +108,9 @@ describe('Git Checks', function() {
   });
 });
 
-// console.log(__dirname) + '/../';
 
 
 
-// more variables to be used later
-var links = [];
-// const index = fs.readFileSync(indexPath, 'utf8');
-const problem1 = fs.readFileSync(path.join('01', 'index.html'), 'utf8'),
-      problem2 = fs.readFileSync(path.join('02', 'index.html'), 'utf8');
-
-
-
-
-// gitconfig
-gitConfig(function (err, config) {
-  if (err) return done(err);
-  if (config.user.name) {name = config.user.name;}
-  if (config.user.email) {email = config.user.email;}
-  if (config.github.user) {githubid = config.github.user;}
-  
-}); 
-
-
-//////////////////////////////////////
-///
-///   tests start here
-///
-//////////////////////////////////////
 
 
 // TODO: convert from cheerio to jsdom/jquery
@@ -182,28 +157,6 @@ describe('Problem 1: Structure a Letter: ', function() {
       expect($('article div.closing').html(), 'Remember to say good-bye (in `div.closing`)!').not.to.be.empty ;
     });
   });
-
-  // it('Next see if any link points to a Codeacademy achievements page', function() {
-  //   // capture href in a variable
-  //   var hr,
-  //       fullMatch=null,
-  //       match=null,
-  //       pr = new RegExp('https://www.codecademy.com/users/(.*)/achievements');
-    
-  //   for (var i=0; i< links.length; i++) {
-  //     hr=links[i].attribs.href;
-  //     fullMatch = pr.exec(hr);
-  //     console.log(hr + fullMatch);
-  //     if (fullMatch) {
-  //       match = fullMatch[1];
-  //       break;
-  //     }
-  //   }
-
-  //   expect(match,'None of the links on the page match the pattern "https://www.codecademy.com/user/userid/achievements"')
-  //     .to.not.be.null;
-  // });
-
 
 });
 
@@ -518,14 +471,7 @@ describe('Problem 5: Blog Post', function() {
     });
 
   });
-
-  
-  
-  
 });
-
-
-
 
 describe('Reflection Checks (not required unless you are attempting an "A" grade!)', function() {
   it('Reflection file should exist', function() {
@@ -537,4 +483,3 @@ describe('Reflection Checks (not required unless you are attempting an "A" grade
     expect(hwc(content), '').to.be.at.least(478);
   });
 });
-
