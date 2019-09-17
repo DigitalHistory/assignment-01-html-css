@@ -60,8 +60,11 @@ HTML tables are sometimes misused as a styling technique, but they are designed 
 ** Problem 3: Basic Styling 
 CSS is an enormous topic, so it will be easy to get lost.  In this problem we deal with a few basic CSS properties, mostly affecting fonts, colors, and spacing. Start with the well-structured HTML in ~index.html~, to which very little styling has been applied so far.
 
-We want to make the final page look something like this: 
-https://screenshotscdn.firefoxusercontent.com/images/45eac93f-d0ac-45e8-a911-dbc6dfcd8648.png
+We want to make the final page look something like this image:
+
+[[./03/ursula.png][file:./03/ursula.png]]
+ 
+
 
  Please do the following:
 - set the default font-family for the whole page to ~"Roboto", sans-serif~, using the ~html~ selector at the top of the file.
