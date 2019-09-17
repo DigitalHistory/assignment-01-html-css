@@ -102,9 +102,10 @@ article div section {
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
     main {
-        /* when the screen shrinks, reorganize the main grid */
+        /* when the screen shrinks, reorganize the main grid and don't stretch beyond height */
+        max-height: 100vh;
         grid-template-areas: "nav"
                              "art"
                              "side"
