@@ -26,7 +26,8 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "jquery": "^3.4.1",
-    "jsdom": "^15.1.1"
+    "jsdom": "^15.1.1",
+    "simple-git": "^1.126.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",

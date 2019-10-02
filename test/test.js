@@ -5,12 +5,11 @@
 // start by requiring all relevant modules
 const path = require('path'),  // find paths
       fs=require('fs'),  // deal w/ filesystem
-      simpleGit = require('simple-git/promise'),
       // gitCommits = require('git-commits'), // git stuff -- should al lbe updated in 2020
-      gitConfig = require('git-config'),
+      //gitConfig = require('git-config'),
       // gitState = require('git-state'),
       cheerio=require('cheerio'), // should get rid of this is poss in favor of jsdom
-      hwc = require('html-word-count'); // important!
+      shwc = require('html-word-count'); // important!
       
 const chai=require('chai'), // testing stuff
       expect=chai.expect, // stupidly using both assert and expect
@@ -22,7 +21,8 @@ const { JSDOM } = require('jsdom');
 // allow file system tests
 chai.use(require('chai-fs'));
 
-var repoPath = path.resolve(process.env.REPO || (__dirname ));
+const repoPath = path.resolve(process.env.REPO || (__dirname )),
+      simpleGit = require('simple-git/promise')
 const ignoreCommitEmails = ['matt.price@utoronto.ca']; // ignore my own commits
 
 // get repo path
@@ -45,20 +45,8 @@ let studentCommits = 0,
 
 
 // global vars for path tests
-let name,email,githubid; // we'll need these throughout
+// let name,email,githubid; // really only needed in git section?
 
-// set the config vars
-gitConfig(function (err, config) {
-  if (err) return done(err);
-  if (config.user.name) {name = config.user.name;}
-  if (config.user.email) {email = config.user.email;}
-  if (config.github.user) {githubid = config.github.user;}
-  
-});
-
-
-// more variables to be used later
-var links = [];
 // const index = fs.readFileSync(indexPath, 'utf8');
 const problem1 = fs.readFileSync(path.join('01', 'index.html'), 'utf8'),
       problem2 = fs.readFileSync(path.join('02', 'index.html'), 'utf8');
@@ -73,29 +61,27 @@ const problem1 = fs.readFileSync(path.join('01', 'index.html'), 'utf8'),
 
 describe('Git Checks', function() {
   //return this.skip;
-  var  gitCheck;
+  let  gitCheck;
+  const email = simpleGit(__dirname).raw(['config', '--get', 'user.email']);
+  const githubid = simpleGit(__dirname).raw(['config', '--get', 'github.user']);
+  const name = simpleGit(__dirname).raw(['config', '--get', 'user.name']);
+
   before(function(done) {
-    simpleGit (repoPath)
-      .log()
-      .then (
-        (log) => {
+    const lg = simpleGit(repoPath).log()
+    const st = simpleGit (repoPath).status()
+    lg.then ( (log) => {
           // console.log(log);
-          for (let l of log.all) {
-            // console.log(l.author_email);
-            if (!matchesProfEmail(l['author_email'], ignoreCommitEmails) )
-            {
-              studentCommits++;
-            }
-          }
-          // console.log("studentcommits: " + studentCommits)
-        })
-      .then( () => {
-        simpleGit (repoPath).status().then( (status) => {
-          // console.log(status);
-          gitCheck=status.files.length; 
-        })})
-      .then(done())
-      
+      for (let l of log.all) {
+        // console.log(l.author_email);
+        if (!matchesProfEmail(l['author_email'], ignoreCommitEmails) )
+        { studentCommits++; }
+      }
+    })
+    st.then( (status) => {
+      // console.log(status);
+      gitCheck=status.files.length;
+    })
+    Promise.all([lg, st]).then( () => { done()})
   });
 
   it('You should have made at least ' + minCommits + ' git commits ', function() {
