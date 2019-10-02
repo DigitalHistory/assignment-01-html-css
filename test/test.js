@@ -99,12 +99,12 @@ describe('Git Checks', function() {
   });
 
   it('All changes in current directory should be committed to Git (OK for this to fail while you are still working)', function() {
-    if (process.env.MARKING = 'instructor' ) return this.skip();
+    if (process.env.MARKING === 'instructor' ) return this.skip();
     expect(gitCheck.dirty, 'looks like you have changed some files and not committed the changes yet').to.equal(0);
   });
 
   it('All files in current directory should be committed to Git (OK for this to fail while you are still working)', function() {
-    if (process.env.MARKING = 'instructor' ) return this.skip();
+    if (process.env.MARKING === 'instructor' ) return this.skip();
     expect(gitCheck.untracked, 'looks like you have some files in the directory which have not been added to the repository. \n      Make sure your answers do not rely on them, or tests will fail on the server.').to.equal(0);
   });
 });
