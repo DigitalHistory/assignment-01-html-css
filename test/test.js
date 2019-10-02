@@ -5,9 +5,6 @@
 // start by requiring all relevant modules
 const path = require('path'),  // find paths
       fs=require('fs'),  // deal w/ filesystem
-      // gitCommits = require('git-commits'), // git stuff -- should al lbe updated in 2020
-      //gitConfig = require('git-config'),
-      // gitState = require('git-state'),
       cheerio=require('cheerio'), // should get rid of this is poss in favor of jsdom
       hwc = require('html-word-count'); // important!
       
@@ -100,10 +97,6 @@ describe('Git Checks', function() {
   });
 
 });
-
-
-
-
 
 
 // TODO: convert from cheerio to jsdom/jquery
