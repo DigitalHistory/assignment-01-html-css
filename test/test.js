@@ -9,7 +9,7 @@ const path = require('path'),  // find paths
       //gitConfig = require('git-config'),
       // gitState = require('git-state'),
       cheerio=require('cheerio'), // should get rid of this is poss in favor of jsdom
-      shwc = require('html-word-count'); // important!
+      hwc = require('html-word-count'); // important!
       
 const chai=require('chai'), // testing stuff
       expect=chai.expect, // stupidly using both assert and expect
