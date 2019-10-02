@@ -5,9 +5,10 @@
 // start by requiring all relevant modules
 const path = require('path'),  // find paths
       fs=require('fs'),  // deal w/ filesystem
-      gitCommits = require('git-commits'), // git stuff -- should al lbe updated in 2020
+      simpleGit = require('simple-git/promise'),
+      // gitCommits = require('git-commits'), // git stuff -- should al lbe updated in 2020
       gitConfig = require('git-config'),
-      gitState = require('git-state'),
+      // gitState = require('git-state'),
       cheerio=require('cheerio'), // should get rid of this is poss in favor of jsdom
       hwc = require('html-word-count'); // important!
       
@@ -21,16 +22,18 @@ const { JSDOM } = require('jsdom');
 // allow file system tests
 chai.use(require('chai-fs'));
 
-var repoPath = path.resolve(process.env.REPO || (__dirname + '/../.git'));
-var ignoreCommitEmails = 'matt.price@utoronto.ca'; // ignore my own commits
+var repoPath = path.resolve(process.env.REPO || (__dirname ));
+const ignoreCommitEmails = ['matt.price@utoronto.ca']; // ignore my own commits
 
 // get repo path
 /**
  * check whether a given email matches any of the forbidden emails
- * @param {} git
+ * @param {array} profEmails 
+ * @param {string} email
  * @returns {} 
  */
 const matchesProfEmail = function (email, profEmails) {
+  // console.log ("PROFEMAILS:" + profEmails)
   return (profEmails.indexOf(email) > -1);
 };
 
@@ -69,23 +72,30 @@ const problem1 = fs.readFileSync(path.join('01', 'index.html'), 'utf8'),
 ////////////////////////////
 
 describe('Git Checks', function() {
+  //return this.skip;
   var  gitCheck;
   before(function(done) {
-    gitCommits(repoPath)
-      .on('data', function (commit) {
-        if (!matchesProfEmail(commit.author.email, ignoreCommitEmails))
-        {
-          studentCommits++;
-        }
-      })
-      .on('end', function () {
-      })
-    ;
-
-    gitCheck  = gitState.checkSync('./', function(r,e) {
-      //return [r, e];
-    });
-    done();
+    simpleGit (repoPath)
+      .log()
+      .then (
+        (log) => {
+          // console.log(log);
+          for (let l of log.all) {
+            // console.log(l.author_email);
+            if (!matchesProfEmail(l['author_email'], ignoreCommitEmails) )
+            {
+              studentCommits++;
+            }
+          }
+          // console.log("studentcommits: " + studentCommits)
+        })
+      .then( () => {
+        simpleGit (repoPath).status().then( (status) => {
+          // console.log(status);
+          gitCheck=status.files.length; 
+        })})
+      .then(done())
+      
   });
 
   it('You should have made at least ' + minCommits + ' git commits ', function() {
@@ -98,15 +108,11 @@ describe('Git Checks', function() {
     expect(githubid, 'your Github user name has not been set').not.to.be.undefined;
   });
 
-  it('All changes in current directory should be committed to Git (OK for this to fail while you are still working)', function() {
+  it('All files and changes in current directory should be committed to Git (OK for this to fail while you are still working)', function() {
     if (process.env.MARKING === 'instructor' ) return this.skip();
-    expect(gitCheck.dirty, 'looks like you have changed some files and not committed the changes yet').to.equal(0);
+    expect(gitCheck, 'looks like you have changed or added some files and not committed the changes yet').to.equal(0);
   });
 
-  it('All files in current directory should be committed to Git (OK for this to fail while you are still working)', function() {
-    if (process.env.MARKING === 'instructor' ) return this.skip();
-    expect(gitCheck.untracked, 'looks like you have some files in the directory which have not been added to the repository. \n      Make sure your answers do not rely on them, or tests will fail on the server.').to.equal(0);
-  });
 });
 
 
