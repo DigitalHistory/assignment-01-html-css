@@ -7,7 +7,7 @@
     "test": "mocha -t 0 test/test.js   --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults",
     "test-less-confusing": "mocha -t 0 test/test.js --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults || true",
     "watch": "mocha -t 0 test/test.js   --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults -w",
-    "test-main-only" : "mocha -t 0 test/test.js --grep \"Reflection\" --invert   --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults" 
+    "test-main-only": "mocha -t 0 test/test.js --grep \"Reflection\" --invert   --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults"
   },
   "repository": {
     "type": "git",
