@@ -1,7 +1,6 @@
 /* eslint-env mocha */
 'use strict';
 
-
 // start by requiring all relevant modules
 const path = require('path'),  // find paths
       fs=require('fs'),  // deal w/ filesystem
@@ -44,8 +43,16 @@ let studentCommits = 0,
 // global vars for path tests
 // let name,email,githubid; // really only needed in git section?
 
+let indexhtml = 'index.html',
+      stylecss = 'style.css'
+
+// add some globals that switch depending on if testing
+if (process.env.MARKING === 'solution') {
+  indexhtml = 'index-solution.html';
+  stylecss = 'style-solution.css';
+}
 // const index = fs.readFileSync(indexPath, 'utf8');
-const problem1 = fs.readFileSync(path.join('01', 'index.html'), 'utf8'),
+const problem1 = fs.readFileSync(path.join('01', indexhtml), 'utf8'),
       problem2 = fs.readFileSync(path.join('02', 'index.html'), 'utf8');
 
 
@@ -181,7 +188,7 @@ describe('Problem 2: Tables', function() {
 describe('Problem 3: Basic CSS', function() {
 
   before(async function() {
-    let jsdom = await JSDOM.fromFile("03/index.html", {
+    let jsdom = await JSDOM.fromFile(path.join('03', indexhtml), {
       resources: "usable",
       runScripts: "dangerously"
     });
@@ -236,7 +243,7 @@ describe('Problem 3: Basic CSS', function() {
 describe('Problem 4: Layout and Media Queries', function() {
   
     before(async function() {
-    let jsdom = await JSDOM.fromFile("04/index.html", {
+      let jsdom = await JSDOM.fromFile(path.join( "04", indexhtml), {
       resources: "usable",
       runScripts: "dangerously"
     });
