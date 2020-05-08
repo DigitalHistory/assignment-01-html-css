@@ -71,8 +71,8 @@ We want to make the final page look something like this image:
 - set the maximum width of ~main~ to ~50rem~ (we use a mixture of ~px~ and ~rem~ in this assignment!)
 - add a border radius of 10px to ~main~
 - add a background color to both ~header~ and ~footer~. Make it the same color!
-- add some padding (at least 5px) to the top of ~header~
-- add margins of at least 10px to the top and bottom of ~article~, and set the ~display~ to ~flow-root~ to fix the old problem of uncleared floats.
+- add some padding ( 5px) to the top of ~header~
+- add margins of 10px to the left and right of ~article~, and set the ~display~ to ~flow-root~ to fix the old problem of uncleared floats.
 - give the ~img~ inside ~article~ a maximum width of ~15rem~; also float it left; give it a visible border with a radius of at least 5px, and add a margin o n the right side to separate it from the text
 - make sure the minimum height of ~footer~ is at lest 5rem
 

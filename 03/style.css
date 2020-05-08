@@ -23,9 +23,7 @@ article img {
 }
 
 footer {
-    background-color: #dfebfb;
-    min-height: 5rem;
-    /* please don't change these values; you will have 
+    /* please don't change these existing values; you will have 
        plenty of chance to play with flex in the next problem */
     display: flex; 
     flex-order: row;
