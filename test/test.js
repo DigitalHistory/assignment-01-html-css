@@ -33,6 +33,16 @@ const matchesProfEmail = function (email, profEmails) {
   return (profEmails.indexOf(email) > -1);
 };
 
+// stolen from https://github.com/agilgur5/window-resizeto/blob/master/src/index.ts
+function resizeTo (windowObj, width, height) {
+  Object.assign(windowObj, {
+    innerWidth: width,
+    innerHeight: height,
+    outerWidth: width,
+    outerHeight: height
+  }).dispatchEvent(new windowObj.Event('resize'))
+}
+
 
 // global vars for git tests
 let studentCommits = 0,
@@ -51,9 +61,11 @@ if (process.env.MARKING === 'solution') {
   indexhtml = 'index-solution.html';
   stylecss = 'style-solution.css';
 }
+
+//console.log(indexhtml)
 // const index = fs.readFileSync(indexPath, 'utf8');
 const problem1 = fs.readFileSync(path.join('01', indexhtml), 'utf8'),
-      problem2 = fs.readFileSync(path.join('02', 'index.html'), 'utf8');
+      problem2 = fs.readFileSync(path.join('02', indexhtml), 'utf8');
 
 
 
@@ -109,16 +121,40 @@ describe('Git Checks', function() {
 // TODO: convert from cheerio to jsdom/jquery
 describe('Problem 1: Structure a Letter: ', function() {
   let $ = cheerio.load(problem1);
- 
+  
+
+  before(async function() {
+    // this code is broken for this problem, I'm not sure why. 
+    // let jsdom = await JSDOM.fromFile(path.join('01', indexhtml), {
+    //   resources: "usable",
+    //   runScripts: "dangerously"
+    // });
+    
+    // await new Promise(resolve =>
+    //   jsdom.window.addEventListener("load", resolve)      
+    // );
+    // let window  = jsdom.window;
+    // let {document } = global.document = window;
+    // // global scope absolutely required unfortunately
+    // let $ = global.$ = require('jquery')(window);
+    //$ = cheerio.load(problem1);
+    //console.log("CHEERIO", document.querySelectorAll('header div.senderinfo p a'))
+  });
+  // console.log($('header div.senderinfo p a')['0'].attribs.href)
+         
   describe('Header Tests', function() {
     it('Sender div contains the right info', function() {
       //console.log($('header div.senderinfo p a')[0].attribs.href);
+      // console.log(document.documentElement)
       expect($('header div.senderinfo p').length, 'There should be exactly one <p> element inside div.senderinfo').to.equal(1) &&
         expect($('header div.senderinfo p br').length,'there are no <br> elements inside ' ).to.be.above(0) &&
-        expect($('header div.senderinfo p a').length, 'There should be one link in the sender div').to.equal(1) &&
-        expect($('header div.senderinfo p a')[0].attribs.href, 'href').to.include('mailto:') ;
+        expect($('header div.senderinfo p a').length, 'There should be one link in the sender div').to.equal(1)  
     });
 
+    it('sender link contains mailto', () => {
+        1 && 
+        expect($('header div.senderinfo p a')['0'].attribs.href, 'href').to.include('mailto:') ;
+    });
     it('<time> is not empty', function() {
       expect($('header time').html(),'make sure you add some text to the <time> element').not.to.be.empty;
     });
@@ -155,9 +191,15 @@ describe('Problem 1: Structure a Letter: ', function() {
 
 describe('Problem 2: Tables', function() {
   let $ = cheerio.load(problem2);
+  //console.log($('header h1').html())
 
   before(function() {
     // load index and set up tests
+  });
+
+  it('Title Should exist', () => {
+    expect($('header h1'), ' does it exist?').to.exist &&
+    expect ($('header h1').html(), 'Title doesn\'t look right').to.include('Prime Ministers of Canada') ;
   });
   
   it('Table isn´t empty', function() {
@@ -259,9 +301,10 @@ describe('Problem 4: Layout and Media Queries', function() {
 
   it('<main>', function() {
     let m = $('main');
-    expect (m.css('grid-template-rows'), 'grid-template-rows should be set to something sensible').to.not.be.undefined &&
-      expect (m.css('grid-template-columns'), 'grid-template-columns should be set to something sensible').to.not.be.undefined &&
-      expect (m.css('gap'), 'gap should be set to something sensible').to.not.be.undefined;
+    console.log("MAINCSS", m.css('grid-template-rows'), m.css('gap'))
+    expect ( m.css('grid-template-rows'), 'grid-template-rows should be set to something sensible').length.to.be.above(0) &&
+      expect (m.css('grid-template-columns'), 'grid-template-columns should be set to something sensible').length.to.be.above(0) &&
+      expect (m.css('gap'), 'gap should be set to something sensible').length.to.be.above(0);
   });
 
   it('<aside>', function() {
@@ -322,7 +365,7 @@ describe('Problem 4: Layout and Media Queries', function() {
 describe('Problem 5: Blog Post', function() {
 
   before(async function() {
-    let jsdom = await JSDOM.fromFile("05/index.html", {
+    let jsdom = await JSDOM.fromFile(path.join('05', indexhtml), {
       resources: "usable",
       runScripts: "dangerously"
     });
@@ -334,6 +377,13 @@ describe('Problem 5: Blog Post', function() {
     let {document } = global.document = window;
     // global scope absolutely required unfortunately
     let $ = global.$ = require('jquery')(window);
+    // now resize the window, using the polyfill, also stolen:
+    // https://github.com/agilgur5/window-resizeto/blob/master/src/polyfill.ts
+    window.resizeTo = function (width, height) {
+      resizeTo(this, width, height)
+    }
+    //window.resizeTo(1920,1600);
+    //window.resizeTo(200,200);
   });
 
 
@@ -380,8 +430,7 @@ describe('Problem 5: Blog Post', function() {
     });'';
 
     it('Main section of the blog post should contain at least 175 words ', function() {
-      expect(
-        hwc($('section.main').html()), 'the main section is too short!').to.be.at.least(190);
+      expect(hwc($('section.main').html()), 'the main section is too short!').to.be.at.least(190);
     });
 
 
@@ -408,11 +457,11 @@ describe('Problem 5: Blog Post', function() {
     // TODO: a bit ugly still
     it('Blog post <head> element should contain a <link> to style.css', function() {
       let pointstostyle = null;
-      console.log("href: " + $('link').attr('href'));
-      console.log("href2: " + $('link')[0].attribs);
+      // console.log("href: " + $('link').attr('href'));
+      // console.log("href2: " + $('link')[0].attribs);
       assert.isAtLeast($('link').length,1,'did not find any link elements');
       $('link').each(function(i) {
-        if ($(this).attr('href') == 'style.css' || $(this).attr('href') == './style.css') {
+        if ($(this).attr('href') == stylecss || $(this).attr('href') == '.' +  style.css) {
           pointstostyle = true ; 
         }
       });
@@ -439,8 +488,8 @@ describe('Problem 5: Blog Post', function() {
     it('<header> element background should be different from background of <article> element and <section> elements', function(done) {
       let hb = $('header').css('background'),
           ab = $('article').css('background');
-      console.log('ARTICLE: ' + $('article').css('background'));
-      console.log('HEADER: ' + $('header').css('background'));
+      // console.log('ARTICLE: ' + $('article').css('background'));
+      // console.log('HEADER: ' + $('header').css('background'));
       expect(hb).to.not.equal(ab);
       // assert.notEqual($('header').css('background') + 'hello', $('article').css('background'), 
       //   'header background should not be the same as article background ');
