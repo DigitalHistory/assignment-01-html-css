@@ -12,9 +12,9 @@ main {
     grid-template-areas: "nav nav nav"
                          "side art aside"
                          "side art aside";
-    grid-template-columns: 
-    grid-template-rows: 
-    grid-gap: 
+    /* grid-template-columns: ; */
+    /* grid-template-rows:  */
+    /* grid-gap: ; */
 }
 
 

@@ -92,7 +92,7 @@ As you can see, it doesn't look very much like this yet!  This page is somewhat 
 - for fun, I have also added a *media query* at the end of ~style.css~.  These few lines of code reorganize the page completely, something that would have been very hard to do just a few years ago.  
 
 I've added in the relevant CSS selectors and declarations; all you need to do is fill in the values.  Here's what I expect you to do: 
-- fill in grid-template-columns and grid-template rows so that the main column is *4 times as wide as the sides* and *4 times as tall as the nav*. Use ~fr~ units for consistency.
+- *uncomment* and then fill in grid-template-columns and grid-template rows so that the main column is *4 times as wide as the sides* and *4 times as tall as the nav*. Use ~fr~ units for consistency.
 - Add ~grid-area~ declarations for all the direct children of ~<main>~.
 - fill in ~flex-direction~ and optionally ~justify-content~ and ~align-items~ to make the ~section.sidebar~ flexbox layout work right
 - optionally fill in the ~gap~ declaration in the ~article~ ruleset
