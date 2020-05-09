@@ -156,7 +156,7 @@ describe('Problem 1: Structure a Letter: ', function() {
         expect($('header div.senderinfo p a')['0'].attribs.href, 'href').to.include('mailto:') ;
     });
     it('<time> is not empty', function() {
-      expect($('header time').html(),'make sure you add some text to the <time> element').not.to.be.empty;
+      expect( hwc($('header time').html()),'make sure you add some text to the <time> element').to.be.above(0);
     });
 
     it('Recipient div contains the right info', function() {
@@ -183,7 +183,8 @@ describe('Problem 1: Structure a Letter: ', function() {
         expect($('article div.text a')[0].attribs.href, 'Make sure you add the My Pretty Pony link').to.equal('https://www.pinterest.ca/pin/840273242953005718/');
     });
     it('Closing', function() {
-      expect($('article div.closing').html(), 'Remember to say good-bye (in `div.closing`)!').not.to.be.empty ;
+      //expect( hwc($('header time').html()),'make sure you add some text to the <time> element').to.be.above(0);
+      expect(hwc($('article div.closing').html()), 'Remember to say good-bye (in `div.closing`)!').to.be.above(0) ;
     });
   });
 
