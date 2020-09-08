@@ -9,7 +9,7 @@
     "watch": "mocha -t 0 test/test.js   --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults -w",
     "test-main-only": "mocha -t 0 test/test.js --grep \"Reflection\" --invert   --reporter mochawesome --reporter-options reportDir=TestResults,reportFilename=testresults",
     "autograde-main": "mocha -t 0 test/test.js --grep \"Reflection|Git Checks\" --invert",
-    "autograde-reflection": "mocha - t 0 test/test.js --grep \"Reflection\""
+    "autograde-reflection": "mocha -t 0 test/test.js --grep \"Reflection\""
   },
   "repository": {
     "type": "git",
