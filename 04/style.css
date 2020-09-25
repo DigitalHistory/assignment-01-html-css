@@ -56,9 +56,9 @@ article {
     background-color: rgba(30,30,30,0.4);
     grid-area:
     display: grid ;
-    grid-template-columns: repeat (5, 1fr);
-    grid-template-rows: repeat (5, 1fr);
-    grid-gap:                   /*the gap is optional*/    
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap:                   /*the gap is optional*/    
 }
 
 /* these next two are just simple styling to make the div boxes visible */

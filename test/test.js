@@ -305,6 +305,11 @@ describe('Problem 4: Layout and Media Queries', function() {
     console.log("MAINCSS", m.css('grid-template-rows'), m.css('gap'))
     expect ( m.css('grid-template-rows'), 'grid-template-rows should be set to something sensible').length.to.be.above(0) &&
       expect (m.css('grid-template-columns'), 'grid-template-columns should be set to something sensible').length.to.be.above(0) &&
+      // expect (m, 'set gap or gap to a non-zero value').to.satisfy(function (main) {
+      //   let gap=main.css('gap'),
+      //       gridGap=main.css('gap');
+      //   return gap 
+      // })
       expect (m.css('gap'), 'gap should be set to something sensible').length.to.be.above(0);
   });
 
